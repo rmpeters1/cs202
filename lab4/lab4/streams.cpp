@@ -19,5 +19,11 @@ int main() {
 	string s1;
 	fin >> s1;
 	cout << s1 << endl;
-
+	string words;
+	cout << "Please type a string: " << endl;
+	getline(cin, words);
+	cout << words;
+	int wordamnt;
+	cout << "Please type a number: " << endl;
+	cin >> wordamnt;
 }
