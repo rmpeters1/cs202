@@ -13,9 +13,18 @@ using std::istringstream;
 
 int main() {
 	ifstream fin("output.txt");
-	string s1;
-	fin >> s1;
-	cout << s1 << endl;
+	while (true) {
+
+		string s1;
+		
+			fin >> s1;
+			cout << s1 << endl;
+			if (!fin) {
+				if (fin.eof()) {
+					break;
+				}
+		}
+	}
 	string words;
 	cout << "Please type a string: " << endl;
 	getline(cin, words);
@@ -26,7 +35,7 @@ int main() {
 		for (int i = 0; i < wordamnt; i++) {
 			fout << words;
 		}
-	
+	fout << endl;
 }
 
 		
