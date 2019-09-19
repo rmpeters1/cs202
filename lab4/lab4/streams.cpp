@@ -22,12 +22,13 @@ int main() {
 	int wordamnt;
 	cout << "Please type a number: " << endl;
 	cin >> wordamnt;
-
 	ofstream fout("output.txt");
-	while (true) {
+
 		for (int i = 0; i < wordamnt; i++) {
 			fout << words;
 		}
+	
+	
 }
 
 
