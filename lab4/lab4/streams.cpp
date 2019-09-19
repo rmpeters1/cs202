@@ -16,5 +16,8 @@ int main() {
 	fout << "Hello";
 	fout.close();
 	ifstream fin("output.txt");
-	
+	string s1;
+	fin >> s1;
+	cout << s1 << endl;
+
 }
