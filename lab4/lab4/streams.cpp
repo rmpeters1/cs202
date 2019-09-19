@@ -12,5 +12,9 @@ using std::getline;
 using std::istringstream;
 
 int main() {
-
+	ofstream fout("output.txt");
+	fout << "Hello";
+	fout.close();
+	ifstream fin("output.txt");
+	
 }
