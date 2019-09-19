@@ -23,7 +23,7 @@ int main() {
 	cout << "Please type a number: " << endl;
 	cin >> wordamnt;
 	ofstream fout("output.txt");
-
+	//fout.open("output.txt", ios::app);
 		for (int i = 0; i < wordamnt; i++) {
 			fout << words;
 		}
