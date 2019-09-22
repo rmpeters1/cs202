@@ -16,7 +16,7 @@ void Box::setWidth(int width) {
 	_width = width;
 }
 
-Box::Box() : _height(1), _width(1) {}
+Box::Box() : _height(1), _width(1), _type(true) {}
 
 Box::Box(int height, int width) : _height(height), _width(width) {
 	if (type() == "Hollow") {

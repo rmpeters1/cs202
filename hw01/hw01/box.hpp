@@ -22,13 +22,13 @@ public:
 	void setHeight(int height);
 	int getWidth() const;
 	void setWidth(int width);
-	string type();
+	bool type();
 	void print(ostringstream & ostream);
 
 private:
 	int _height;
 	int _width;
-
+	bool _type;
 };
 
 #endif // !BOX_HPP_
