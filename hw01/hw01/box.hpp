@@ -12,11 +12,11 @@ public:
 	~Box();
 	void type();
 	
-	void getHeight(int height) const;
-	int setHeight();
-	void getWidth(int width) const;
-	int setWidth();
+	int getHeight(int height) const;
+	void setHeight();
+	int getWidth(int width) const;
+	void setWidth();
 private:
 	int _width;
 	int _height;
-}
+};
