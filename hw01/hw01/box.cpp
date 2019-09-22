@@ -22,4 +22,6 @@ Box::Box(int height, int width) : _height(height), _width(width) {}
 
 Box::Box(int height, int width, bool type) {}
 
-bool type(string typeChecker) {}
+string type(string typeChecker) { return typeChecker; }
+
+ostringstream print(ostringstream & ostream) {}

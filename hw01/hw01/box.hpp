@@ -7,6 +7,8 @@ using std::endl;
 using std::cin;
 #include <string>
 using std::string;
+#include <sstream>
+using std::ostringstream;
 
 class Box {
 public:
@@ -20,7 +22,9 @@ public:
 	void setHeight(int height);
 	int getWidth() const;
 	void setWidth(int width);
-	bool type(string typeChecker);
+	string type(string typeChecker);
+	ostringstream print(ostringstream & ostream);
+
 private:
 	int _height;
 	int _width;
