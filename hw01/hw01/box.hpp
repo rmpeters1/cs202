@@ -13,8 +13,8 @@ using std::ostringstream;
 class Box {
 public:
 	Box();
-	Box(int height, int width);
-	Box(int height, int width, bool type);
+	Box( int width, int height);
+	Box( int width, int height, bool type);
 	
 
 

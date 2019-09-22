@@ -18,13 +18,12 @@ void Box::setWidth(int width) {
 
 Box::Box() : _height(1), _width(1), _type(true) {}
 
-Box::Box(int height, int width) :
+Box::Box(int width, int height) :
 	_height(height),
-	_width(width),
-	_type(true)
+	_width(width)
 {}
 
-Box::Box(int height, int width, bool type) :
+Box::Box( int width, int height, bool type) :
 	_height(height),
 	_width(width),
 	_type(type)
@@ -44,5 +43,4 @@ string Box::type() const {
 }
 
 void Box::print(ostringstream & ostream) const {
-
 }
