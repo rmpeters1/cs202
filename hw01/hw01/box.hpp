@@ -10,9 +10,9 @@ public:
 
 
 	int getHeight() const;
-	void setHeight();
+	void setHeight(int height);
 	int getWidth() const;
-	void setWidth();
+	void setWidth(int width);
 private:
 	int _height;
 	int _width;
