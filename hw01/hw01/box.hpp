@@ -8,6 +8,11 @@ public:
 	Box();
 	Box(int height, int width);
 
+
+	int getHeight() const;
+	void setHeight();
+	int getWidth() const;
+	void setWidth();
 private:
 	int _height;
 	int _width;
