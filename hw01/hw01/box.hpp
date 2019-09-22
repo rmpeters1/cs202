@@ -5,9 +5,11 @@
 
 class Box {
 public:
+	Box();
 
 private:
-	
+	int _height;
+	int _width;
 
 };
 
