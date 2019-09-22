@@ -22,8 +22,8 @@ public:
 	void setHeight(int height);
 	int getWidth() const;
 	void setWidth(int width);
-	bool type();
-	void print(ostringstream & ostream);
+	string type() const;
+	ostringstream print(ostringstream & ostream) const;
 
 private:
 	int _height;
