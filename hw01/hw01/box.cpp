@@ -43,5 +43,6 @@ string Box::type() const {
 
 }
 
-ostringstream Box::print(ostringstream & ostream) const {
+void Box::print(ostringstream & ostream) const {
+
 }

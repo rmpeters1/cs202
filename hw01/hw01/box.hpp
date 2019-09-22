@@ -23,7 +23,7 @@ public:
 	int getWidth() const;
 	void setWidth(int width);
 	string type() const;
-	ostringstream print(ostringstream & ostream) const;
+	void print(ostringstream & ostream) const;
 
 private:
 	int _height;
