@@ -26,8 +26,11 @@ Box::Box(int height, int width) : _height(height), _width(width) {
 
 Box::Box(int height, int width, bool type) {}
 
-string type() {
+string Box::type() {
 	string typeChecker;
-	return typeChecker; }
+	return typeChecker; 
+}
 
-ostringstream print(ostringstream & ostream) {}
+void Box::print(ostringstream & ostream) {
+	cout << ostream.str();
+}
