@@ -22,7 +22,7 @@ public:
 	void setHeight(int height);
 	int getWidth() const;
 	void setWidth(int width);
-	string type(string typeChecker);
+	string type();
 	ostringstream print(ostringstream & ostream);
 
 private:

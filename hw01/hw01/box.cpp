@@ -18,10 +18,16 @@ void Box::setWidth(int width) {
 
 Box::Box() : _height(1), _width(1) {}
 
-Box::Box(int height, int width) : _height(height), _width(width) {}
+Box::Box(int height, int width) : _height(height), _width(width) {
+	if (type() == "Hollow") {
+
+}
+}
 
 Box::Box(int height, int width, bool type) {}
 
-string type(string typeChecker) { return typeChecker; }
+string type() {
+	string typeChecker;
+	return typeChecker; }
 
 ostringstream print(ostringstream & ostream) {}
