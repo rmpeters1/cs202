@@ -7,7 +7,7 @@ class Box {
 public:
 	Box();
 	Box(int height, int width);
-
+	Box(int height, int width, bool type);
 
 	int getHeight() const;
 	void setHeight(int height);
