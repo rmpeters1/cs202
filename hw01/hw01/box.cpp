@@ -18,13 +18,17 @@ void Box::setWidth(int width) {
 
 Box::Box() : _height(1), _width(1), _type(true) {}
 
-Box::Box(int height, int width) : _height(height), _width(width) {
-	if (type() == "Hollow") {
+Box::Box(int height, int width) : 
+	_height(height), 
+	_width(width), 
+	_type(true) 
+{}
 
-}
-}
-
-Box::Box(int height, int width, bool type) {}
+Box::Box(int height, int width, bool type) :
+_height(height),
+_width(width),
+_type(type)
+{}
 
 string Box::type() {
 	string typeChecker;
