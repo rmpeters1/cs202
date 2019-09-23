@@ -43,12 +43,17 @@ string Box::type() const {
 }
 
 void Box::print(ostringstream & ostream) const {
+	
 	for (int border = 0; border < _width; border++) {
-		ostream << "x";
-	}
+		if (_width == 1 && _height == 1) {
+			ostream << "";
+		}
+		else {
+			ostream << "x";
+}
+		}
 	ostream << endl;
 	for (int line = 0; line < _height - 2; line++) {
-
 		for (int col = 0; col < 1; col++) {
 			ostream << "x";
 		}
@@ -71,4 +76,5 @@ void Box::print(ostringstream & ostream) const {
 	ostream << endl;
 
 	cout << ostream.str();
+
 }
