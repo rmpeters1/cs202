@@ -23,7 +23,7 @@ Box::Box(int width, int height) :
 	_width(width)
 {}
 
-Box::Box( int width, int height, bool type) :
+Box::Box(int width, int height, bool type) :
 	_height(height),
 	_width(width),
 	_type(type)
@@ -43,4 +43,32 @@ string Box::type() const {
 }
 
 void Box::print(ostringstream & ostream) const {
+	for (int border = 0; border < _width; border++) {
+		ostream << "x";
+	}
+	ostream << endl;
+	for (int line = 0; line < _height - 2; line++) {
+
+		for (int col = 0; col < 1; col++) {
+			ostream << "x";
+		}
+		for (int row = 0; row < _width - 2; row++) {
+			if (_type == true) {
+				ostream << "x";
+			}
+			else {
+				ostream << " ";
+			}
+		}
+		for (int col = 0; col < 1; col++) {
+			ostream << "x";
+		}
+		ostream << endl;
+	}
+	for (int border = 0; border < _width; border++) {
+		ostream << "x";
+	}
+	ostream << endl;
+
+	cout << ostream.str();
 }
