@@ -55,6 +55,9 @@ void Box::print(ostringstream & ostream) const {
 			if (_type == true) {
 				ostream << "x";
 			}
+			else if (_type) {
+				ostream << "x";
+			}
 			else {
 				ostream << " ";
 			}
