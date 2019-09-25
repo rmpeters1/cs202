@@ -52,7 +52,7 @@ void Box::print(ostringstream & ostream) const {
 			ostream << "x";
 }
 		}
-	ostream << endl;
+	
 	for (int line = 0; line < _height - 2; line++) {
 		for (int col = 0; col < 1; col++) {
 			ostream << "x";
