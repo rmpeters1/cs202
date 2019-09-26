@@ -1,3 +1,10 @@
+/**
+* @file     box.hpp
+* @author   Rose Peters
+* @date     September 26, 2019
+* Dr. Chris Hartman
+*/
+
 #ifndef BOX_HPP_
 #define BOX_HPP_
 

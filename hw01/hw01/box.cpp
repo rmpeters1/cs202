@@ -1,3 +1,10 @@
+/**
+* @file     box.cpp
+* @author   Rose Peters
+* @date     September 26, 2019
+* Dr. Chris Hartman 
+*/
+
 #include "box.hpp"
 
 int Box::getHeight() const {
@@ -33,9 +40,6 @@ string Box::type() const {
 	if (_type == true) {
 		return "Filled";
 	}
-	else if (_type == false) {
-		return "Hollow";
-	}
 	else {
 		return "Hollow";
 	}
@@ -43,22 +47,22 @@ string Box::type() const {
 }
 
 void Box::print(ostringstream & ostream) const {
-	
+
 	for (int border = 0; border < _width; border++) {
-		if (_width == 1 && _height == 1) {
-			ostream << "";
-		}
-		else {
+		if (_width != 1 && _height != 1) {
 			ostream << "x";
-}
 		}
-	ostream << endl;
+	}
+	if (_width != 1 && _height != 1) ostream << endl;
 	for (int line = 0; line < _height - 2; line++) {
 		for (int col = 0; col < 1; col++) {
 			ostream << "x";
 		}
 		for (int row = 0; row < _width - 2; row++) {
 			if (_type == true) {
+				ostream << "x";
+			}
+			else if (_type) {
 				ostream << "x";
 			}
 			else {
@@ -75,6 +79,6 @@ void Box::print(ostringstream & ostream) const {
 	}
 	ostream << endl;
 
-	cout << ostream.str();
+	//cout << ostream.str();
 
 }
