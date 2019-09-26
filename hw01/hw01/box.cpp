@@ -1,3 +1,10 @@
+/**
+* @file     box.cpp
+* @author   Rose Peters
+* @date     September 26, 2019
+* Dr. Chris Hartman 
+*/
+
 #include "box.hpp"
 
 int Box::getHeight() const {
@@ -72,6 +79,6 @@ void Box::print(ostringstream & ostream) const {
 	}
 	ostream << endl;
 
-	cout << ostream.str();
+	//cout << ostream.str();
 
 }
