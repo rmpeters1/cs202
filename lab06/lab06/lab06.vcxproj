@@ -123,8 +123,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="namespace.cpp" />
-    <ClCompile Include="namespace.hpp" />
+    <ClCompile Include="names.cpp" />
+    <ClCompile Include="names.hpp" />
+    <ClCompile Include="names_main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

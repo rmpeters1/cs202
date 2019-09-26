@@ -15,10 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="namespace.hpp">
+    <ClCompile Include="names.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="names.hpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="namespace.cpp">
+    <ClCompile Include="names_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
