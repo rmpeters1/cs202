@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{243E9522-3AF4-4680-823A-37E4CAEE699B}</ProjectGuid>
+    <ProjectGuid>{8690803A-EDEB-485D-8C7F-3BE664D15ADC}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>hw02</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
@@ -143,7 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="files.hpp" />
+    <ClCompile Include="files.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
