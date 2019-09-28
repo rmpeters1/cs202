@@ -6,20 +6,20 @@ int getIdFromFile(const string & filename,
 
 
 	std::ifstream fin("filename", std::ios::binary);
-	fin.seekg(sizeof(int));
+	istream.seekg(sizeof(int));
 
 	string username;
 	int ID;
 	fin.read(reinterpret_cast<char*>(&username, &ID), sizeof(int));
-	cout << username, ID;
+	ostream << username, ID;
 	while (true) {
 		if (!fin) {
-		if (fin.eof()) {
-			break;
+			if (fin.eof()) {
+				break;
+			}
 		}
 	}
-	}
-	
+
 	return 0;
 }
 
