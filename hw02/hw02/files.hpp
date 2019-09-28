@@ -9,6 +9,7 @@ using std::string;
 #include <sstream>
 using std::istringstream;
 using std::ostringstream;
+#include <fstream>
 
 int getIdFromFile(const string & filename,
 	istringstream & istream, ostringstream & ostream);
