@@ -11,8 +11,8 @@ int getIdFromFile(const string & filename,
 	string username;
 	int ID;
 	fin.read(reinterpret_cast<char*>(&username, &ID), sizeof(int));
-	ostream << username, ID;
-	while (true) {
+	ostream.seekp(sizeof(int));
+			while (true) {
 		if (!fin) {
 			if (fin.eof()) {
 				break;
