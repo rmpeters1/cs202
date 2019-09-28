@@ -22,3 +22,6 @@ int getIdFromFile(const string & filename,
 	
 	return 0;
 }
+
+void numberChase(const string & filename, ostringstream & ostream) {
+}

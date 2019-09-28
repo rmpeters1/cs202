@@ -14,4 +14,6 @@ using std::ostringstream;
 int getIdFromFile(const string & filename,
 	istringstream & istream, ostringstream & ostream);
 
+void numberChase(const string & filename, ostringstream & ostream);
+
 #endif //!FILES_HPP
