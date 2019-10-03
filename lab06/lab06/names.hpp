@@ -6,9 +6,7 @@ using std::cout;
 using std::endl;
 
 namespace functions {
-	void foo() {
-		cout << 13 << endl;
-	}
+	void foo();
 }
 
 
