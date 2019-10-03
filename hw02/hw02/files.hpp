@@ -10,6 +10,8 @@ using std::string;
 using std::istringstream;
 using std::ostringstream;
 #include <fstream>
+#include <vector>
+using std::vector;
 
 int getIdFromFile(const string & filename,
 	istringstream & istream, ostringstream & ostream);
