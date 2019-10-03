@@ -9,18 +9,25 @@ int getIdFromFile(const string & filename,
 	
 	std::ifstream fin("filename");
 	
-	
+	vector<int> idVec;
+	fin >> ids;
+	idVec.push_back(ids);
+	for (auto n = 0; n < idVec.size(); n++) {
+		cout << n << endl;
+	}
 	cout << istream.str();
 	while (true) {
-		fin >> ids;
-		vector<int> idVec;
-		idVec.push_back(ids);
+		
+		
 		//for loop for names, search number in names
 		fin >> usernames;
-		for (auto numbers : idVec) {
-			if (usernames == istream.str())
-				cout << idVec[numbers];
-		 }
+	/*	for (auto names : usernames) {
+			for (auto numbers : idVec) {
+				if (names) {
+					cout << numbers[names];
+				}
+			}
+		}*/
 		
 		if (!fin) {
 			if (fin.eof()) {
@@ -28,7 +35,7 @@ int getIdFromFile(const string & filename,
 			}
 		}
 	}
-	cout << ids;
+	
 	return 0;
 }
 
