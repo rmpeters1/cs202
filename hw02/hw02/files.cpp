@@ -3,29 +3,19 @@
 
 int getIdFromFile(const string & filename,
 	istringstream & istream, ostringstream & ostream) {
-
-
-	std::ifstream fin("filename", std::ios::binary);
-	auto names = istream.tellg();
+	int ids;
+	
+	std::ifstream fin("filename");
+	cout << istream.str() << endl;
+	
 	while (true) {
-		string usernames;
-		istream >> usernames;
-		istream >> usernames;
-		int ids;
-		fin.read(reinterpret_cast<char*>(&ids), sizeof(int));
-		vector<int> idvec;
-		idvec.push_back(ids);
-		for (auto numbers : idvec) {
-			ostream << numbers << endl;
-		}
 	
 		if (!fin) {
 			if (fin.eof()) {
-				break;
+				return -1;
 			}
 		}
 	}
-	cout << ostream.str();
 	return 0;
 }
 
