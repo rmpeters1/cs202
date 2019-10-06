@@ -5,6 +5,7 @@
 using std::cout;
 using std::endl;
 #include <string>
+using std::getline;
 using std::string;
 #include <sstream>
 using std::istringstream;
