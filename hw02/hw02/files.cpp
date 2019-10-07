@@ -3,7 +3,7 @@
 
 int getIdFromFile(const string& filename,
 	istringstream& istream, ostringstream& ostream) {
-	
+
 	std::ifstream fin(filename);
 	string inputName;
 	string id;
@@ -18,8 +18,8 @@ int getIdFromFile(const string& filename,
 			cout << id;
 			ostream << id;
 		}
-		
-	
+
+
 		if (!fin) {
 			return -1;
 			if (fin.eof()) {
@@ -32,4 +32,31 @@ int getIdFromFile(const string& filename,
 }
 
 void numberChase(const string& filename, ostringstream& ostream) {
+	std::ifstream fin(filename);
+
+	int numberInFile;
+	int numberIndex = 0;
+	vector<int> numbersVec;
+
+	while (true) {
+
+		fin.read(reinterpret_cast<char*>(&numberInFile), sizeof(int));
+	
+	
+			numbersVec.push_back(numberInFile);
+			
+
+
+		//	cout << number << endl;
+		if (!fin) {
+			if (fin.eof()) {
+				break;
+			}
+		}
+	}
+	
+	
+	
+			
+	
 }
