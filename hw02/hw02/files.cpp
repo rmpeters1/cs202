@@ -1,52 +1,35 @@
 #include "files.hpp"
 
 
-int getIdFromFile(const string & filename,
-	istringstream & istream, ostringstream & ostream) {
+int getIdFromFile(const string& filename,
+	istringstream& istream, ostringstream& ostream) {
 	
 	std::ifstream fin(filename);
-	//for (auto i : istream.str()) {
-	//	cout << i;
-	//}
+	string inputName;
+	string id;
 	string filetext;
-	
-	while (true) {
-		getline(fin, filetext);
+	string usernameInFile;
 
-		if (istream.str().size() > 0) {
-			for (auto i = 0; i < istream.str().size(); i++) {
-				if (istream.str()[i] == filetext[i]) {
-
-}
-			}
+	while (getline(fin, filetext)) {
+		getline(istream, inputName);
+		istringstream is(filetext);
+		is >> usernameInFile >> id;
+		if (usernameInFile == inputName) {
+			cout << id;
+			ostream << id;
 		}
 		
-
-
-
-		//for (auto i = 0; i < v.size(); i++) {
-		//	//cout << v[i];
-		//	if (filetext[i] == names[i]) {
-		//		fin >> filetext;
-		//		ostream << filetext << "\n";
-		//	}
-		//	else {
-		//		ostream << "error\n";
-		//	}
-		//}
-		//
+	
 		if (!fin) {
 			return -1;
 			if (fin.eof()) {
 				break;
 			}
 		}
-		//cout << ostream.str();
-		return 0;
 
 	}
 	return 0;
 }
 
-void numberChase(const string & filename, ostringstream & ostream) {
+void numberChase(const string& filename, ostringstream& ostream) {
 }
