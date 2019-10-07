@@ -54,7 +54,16 @@ void numberChase(const string& filename, ostringstream& ostream) {
 			}
 		}
 	}
-	
+	while (true) {
+		if (numberIndex >= 0 && numberIndex > numbersVec.size()) {
+			numberIndex = numbersVec[numberIndex];
+			cout << numberIndex;
+			ostream << numberIndex << endl;
+		}
+
+
+
+	}
 	
 	
 			
