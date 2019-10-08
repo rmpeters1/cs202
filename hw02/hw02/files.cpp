@@ -13,52 +13,35 @@ int getIdFromFile(const string& filename,
 	string id;
 	string filetext;
 	string usernameInFile;
-	/*vector<string> inputNamesVec;
-		inputNamesVec.push_back(istream.str());*/
-		
-		vector<string> fileNamesVec;
-		vector<string> fileIdsVec;
+
+	vector<string> fileNamesVec;
+	vector<string> fileIdsVec;
 
 	while (fin) {
 		fin >> filetext;
 		fileNamesVec.push_back(filetext);
 		fin >> filetext;
 		fileIdsVec.push_back(filetext);
-		
-
-		//	get usernames / ids from istringstream is
-		//getline(fin, filetext);
-		//istringstream is(filetext);
-		//is >> usernameInFile >> id; 
-		//}
-
-		//
-		//cout << usernameInFile << "," << id<< endl;
-		//for (auto i : inputName) {
-		//	if (usernameInFile == inputName) {
-		//		cout << id << endl;
-		//		ostream << id << endl;
-		//	}
-		//	else {
-		//		//cout << "error" << endl;
-		//		ostream << "error" << endl;
-		//	}
-		//}
-
 
 		if (fin.eof()) {
 			break;
 		}
 	}
 
-	getline(istream, inputName);
+/
+	while (getline(istream, inputName)) {
 
-	for (auto i = 0; i < fileNamesVec.size(); i++) {
-		if (inputName == fileNamesVec[i]) {
-			cout << fileIdsVec[i];
+		for (auto i = 0; i < fileNamesVec.size(); i++) {
+			if (inputName == fileNamesVec[i]) {
+				cout << fileIdsVec[i] << endl;
+				ostream << fileIdsVec[i] << endl;
+			}
+			//else if(inputName != fileNamesVec[i]) {
+			//	cout << "error" << endl;
+			//	break;
+			//}
 		}
-		}
-	
+	}
 
 	return 0;
 }
