@@ -17,20 +17,20 @@ int getIdFromFile(const string& filename,
 		getline(istream, inputName);
 		istringstream is(filetext);
 		is >> usernameInFile >> id;
-			if (usernameInFile == inputName) {
-				//cout << id << endl;
-				ostream << id << endl;
-			}
-			else {
+		
+		if (usernameInFile == inputName) {
+			cout << id << endl;
+			ostream << id << endl;
+		}
+		else {
 				//cout << "error" << endl;
 				ostream << "error" << endl;
-			}
-		
+		}
 
-		if (!fin) {
-			if (fin.eof()) {
-				break;
-			}
+
+
+		if (fin.eof()) {
+			break;
 		}
 	}
 	return 0;
@@ -49,7 +49,6 @@ void numberChase(const string& filename, ostringstream& ostream) {
 
 
 		numbersVec.push_back(numberInFile);
-		//cout << numberInFile << endl;
 
 
 		//	cout << number << endl;
@@ -63,6 +62,7 @@ void numberChase(const string& filename, ostringstream& ostream) {
 	int copyCount = 0;
 	while (numberIndex >= 0) {
 		numberIndex = numbersVec[numberIndex];
+
 		cout << numberIndex << endl;
 		ostream << numberIndex << endl;
 
