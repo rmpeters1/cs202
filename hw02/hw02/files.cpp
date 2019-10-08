@@ -13,16 +13,26 @@ int getIdFromFile(const string& filename,
 	string id;
 	string filetext;
 	string usernameInFile;
-	vector<string> namesVec;
-		namesVec.push_back(istream.str());
+	/*vector<string> inputNamesVec;
+		inputNamesVec.push_back(istream.str());*/
+		
+		vector<string> fileNamesVec;
+		vector<string> fileIdsVec;
+
+	while (fin) {
+		fin >> filetext;
+		fileNamesVec.push_back(filetext);
+		fin >> filetext;
+		fileIdsVec.push_back(filetext);
 		
 
-	while (getline(fin, filetext)) {
-		istringstream is(filetext);
-		is >> usernameInFile >> id;
+		//	get usernames / ids from istringstream is
+		//getline(fin, filetext);
+		//istringstream is(filetext);
+		//is >> usernameInFile >> id; 
+		//}
 
-
-
+		//
 		//cout << usernameInFile << "," << id<< endl;
 		//for (auto i : inputName) {
 		//	if (usernameInFile == inputName) {
@@ -40,6 +50,16 @@ int getIdFromFile(const string& filename,
 			break;
 		}
 	}
+
+	getline(istream, inputName);
+
+	for (auto i = 0; i < fileNamesVec.size(); i++) {
+		if (inputName == fileNamesVec[i]) {
+			cout << fileIdsVec[i];
+		}
+		}
+	
+
 	return 0;
 }
 
@@ -70,7 +90,7 @@ void numberChase(const string& filename, ostringstream& ostream) {
 	while (numberIndex >= 0) {
 		numberIndex = numbersVec[numberIndex];
 
-		cout << numberIndex << endl;
+		//cout << numberIndex << endl;
 		ostream << numberIndex << endl;
 
 		if (numberIndex >= numbersVec.size()) {
