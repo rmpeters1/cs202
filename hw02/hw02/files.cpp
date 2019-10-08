@@ -28,7 +28,7 @@ int getIdFromFile(const string& filename,
 		}
 	}
 
-/
+
 	while (getline(istream, inputName)) {
 
 		for (auto i = 0; i < fileNamesVec.size(); i++) {
@@ -36,10 +36,6 @@ int getIdFromFile(const string& filename,
 				cout << fileIdsVec[i] << endl;
 				ostream << fileIdsVec[i] << endl;
 			}
-			//else if(inputName != fileNamesVec[i]) {
-			//	cout << "error" << endl;
-			//	break;
-			//}
 		}
 	}
 
