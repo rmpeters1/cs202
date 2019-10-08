@@ -13,22 +13,27 @@ int getIdFromFile(const string& filename,
 	string id;
 	string filetext;
 	string usernameInFile;
+	vector<string> namesVec;
+		namesVec.push_back(istream.str());
+		
 
 	while (getline(fin, filetext)) {
-		getline(istream, inputName);
 		istringstream is(filetext);
 		is >> usernameInFile >> id;
-		cout << usernameInFile << endl;
-		for (auto i : inputName) {
-			if (usernameInFile == inputName) {
-				cout << id << endl;
-				ostream << id << endl;
-			}
-			else {
-				//cout << "error" << endl;
-				ostream << "error" << endl;
-			}
-		}
+
+
+
+		//cout << usernameInFile << "," << id<< endl;
+		//for (auto i : inputName) {
+		//	if (usernameInFile == inputName) {
+		//		cout << id << endl;
+		//		ostream << id << endl;
+		//	}
+		//	else {
+		//		//cout << "error" << endl;
+		//		ostream << "error" << endl;
+		//	}
+		//}
 
 
 		if (fin.eof()) {

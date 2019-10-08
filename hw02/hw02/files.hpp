@@ -1,3 +1,10 @@
+/**
+* @file     files.hpp
+* @author   Rose Peters
+* @date     October 8, 2019
+* Dr. Chris Hartman
+*/
+
 #ifndef FILES_HPP_
 #define FILES_HPP_
 
