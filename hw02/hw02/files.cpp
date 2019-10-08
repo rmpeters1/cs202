@@ -1,3 +1,4 @@
+/**/
 #include "files.hpp"
 
 
@@ -17,16 +18,17 @@ int getIdFromFile(const string& filename,
 		getline(istream, inputName);
 		istringstream is(filetext);
 		is >> usernameInFile >> id;
-		
-		if (usernameInFile == inputName) {
-			cout << id << endl;
-			ostream << id << endl;
-		}
-		else {
+		cout << usernameInFile << endl;
+		for (auto i : inputName) {
+			if (usernameInFile == inputName) {
+				cout << id << endl;
+				ostream << id << endl;
+			}
+			else {
 				//cout << "error" << endl;
 				ostream << "error" << endl;
+			}
 		}
-
 
 
 		if (fin.eof()) {

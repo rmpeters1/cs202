@@ -6,6 +6,7 @@ class Complex {
 public:
 	Complex();
 	Complex(double,double);
+	Complex(double);
 	double getReal() const;
 	double getComplex() const;
 	Complex& operator+=(const Complex& rhs);
