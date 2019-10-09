@@ -7,9 +7,7 @@
 
 #include "files.hpp"
 
-/*
 
-*/
 int getIdFromFile(const string& filename,
 	istringstream& istream, ostringstream& ostream) {
 
@@ -36,12 +34,13 @@ int getIdFromFile(const string& filename,
 		}
 	}
 
+	
 
 	while (getline(istream, inputName)) {
 
 		for (auto i = 0; i < fileNamesVec.size(); i++) {
 			if (inputName == fileNamesVec[i]) {
-				cout << fileIdsVec[i] << endl;
+			//	cout << fileIdsVec[i] << endl;
 				ostream << fileIdsVec[i] << endl;
 			}
 		}
@@ -63,9 +62,6 @@ void numberChase(const string& filename, ostringstream& ostream) {
 
 
 		numbersVec.push_back(numberInFile);
-
-
-		//	cout << number << endl;
 		if (!fin) {
 			if (fin.eof()) {
 				break;
