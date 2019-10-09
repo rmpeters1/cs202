@@ -1,7 +1,15 @@
-/**/
+/**
+* @file     files.cpp
+* @author   Rose Peters
+* @date     October 8, 2019
+* Dr. Chris Hartman
+*/
+
 #include "files.hpp"
 
+/*
 
+*/
 int getIdFromFile(const string& filename,
 	istringstream& istream, ostringstream& ostream) {
 
