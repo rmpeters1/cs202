@@ -36,8 +36,11 @@ public:
 	void print(ostringstream& ostream) const;
 
 private:
-	Box::Boxtype _type;
+	Boxtype _type;
 	int _height;
 	int _width;
 };
+
+std::ostream& operator<<(std::ostream& out, const Box& b);
+
 #endif //!BOX_HPP_

@@ -35,7 +35,7 @@ Box::Box(int width, int height, enum type) :
 	_width(width)
 
 {
-	_type = FILLED;
+	_type = type;
 }
 
 string Box::type() const {
@@ -48,6 +48,10 @@ string Box::type() const {
 	else if (CHECKERED) {
 		return "Checkered";
 	}
+
+}
+
+std::ostream& operator<<(std::ostream& out, const Box& b) {
 
 }
 
