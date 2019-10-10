@@ -30,18 +30,21 @@ Box::Box(int width, int height) :
 	_width(width)
 {}
 
-Box::Box(int width, int height, bool type) :
+Box::Box(int width, int height, enum Boxtype) :
 	_height(height),
 	_width(width),
 	_type(type)
 {}
 
 string Box::type() const {
-	if (_type == true) {
+	if (FILLED) {
 		return "Filled";
 	}
-	else {
+	else if (HOLLOW) {
 		return "Hollow";
+	}
+	else if (CHECKERED) {
+		return "Checkered";
 	}
 
 }

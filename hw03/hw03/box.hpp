@@ -19,7 +19,7 @@ using std::ostringstream;
 
 class Box {
 public:
-	enum Boxtype{FILLED, HOLLOWED, CHECKERED};
+	enum Boxtype{FILLED, HOLLOW, CHECKERED};
 	Box();
 	Box(int width, int height);
 	Box(int width, int height, enum Boxtype);
