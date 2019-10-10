@@ -35,7 +35,7 @@ Box::Box(int width, int height, enum type) :
 	_width(width)
 
 {
-	_type = type;
+	_type = FILLED;
 }
 
 string Box::type() const {
@@ -52,42 +52,42 @@ string Box::type() const {
 }
 
 std::ostream& operator<<(std::ostream& out, const Box& b) {
-
+	return out;
 }
 
-void Box::print(ostringstream& ostream) const {
+//void Box::print(ostringstream& ostream) const {
 
-	for (int border = 0; border < _width; border++) {
-		if (_width != 1 && _height != 1) {
-			ostream << "x";
-		}
-	}
-	if (_width != 1 && _height != 1) ostream << endl;
-	for (int line = 0; line < _height - 2; line++) {
-		for (int col = 0; col < 1; col++) {
-			ostream << "x";
-		}
-		for (int row = 0; row < _width - 2; row++) {
-			if (_type == FILLED) {
-				ostream << "x";
-			}
-			/*else if (_type) {
-				ostream << "x";
-			}*/
-			else {
-				ostream << " ";
-			}
-		}
-		for (int col = 0; col < 1; col++) {
-			ostream << "x";
-		}
-		ostream << endl;
-	}
-	for (int border = 0; border < _width; border++) {
-		ostream << "x";
-	}
-	ostream << endl;
+	//for (int border = 0; border < _width; border++) {
+	//	if (_width != 1 && _height != 1) {
+	//		ostream << "x";
+	//	}
+	//}
+	//if (_width != 1 && _height != 1) ostream << endl;
+	//for (int line = 0; line < _height - 2; line++) {
+	//	for (int col = 0; col < 1; col++) {
+	//		ostream << "x";
+	//	}
+	//	for (int row = 0; row < _width - 2; row++) {
+	//		if (_type == FILLED) {
+	//			ostream << "x";
+	//		}
+	//		/*else if (_type) {
+	//			ostream << "x";
+	//		}*/
+	//		else {
+	//			ostream << " ";
+	//		}
+	//	}
+	//	for (int col = 0; col < 1; col++) {
+	//		ostream << "x";
+	//	}
+	//	ostream << endl;
+	//}
+	//for (int border = 0; border < _width; border++) {
+	//	ostream << "x";
+	//}
+	//ostream << endl;
 
-	//cout << ostream.str();
+	////cout << ostream.str();
 
-}
+//}
