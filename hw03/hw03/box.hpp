@@ -19,10 +19,10 @@ using std::ostringstream;
 
 class Box {
 public:
-	enum Boxtype{FILLED, HOLLOW, CHECKERED};
+	enum Boxtype { FILLED, HOLLOW, CHECKERED };
 	Box();
 	Box(int width, int height);
-	Box(int width, int height, enum Boxtype);
+	Box(int width, int height, enum type);
 
 
 
@@ -30,13 +30,14 @@ public:
 	void setHeight(int height);
 	int getWidth() const;
 	void setWidth(int width);
+
 	string type() const;
+	static int howMany();
 	void print(ostringstream& ostream) const;
 
 private:
+	Box::Boxtype _type;
 	int _height;
 	int _width;
-	bool _type;
 };
-
 #endif //!BOX_HPP_

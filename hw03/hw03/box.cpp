@@ -23,18 +23,20 @@ void Box::setWidth(int width) {
 	_width = width;
 }
 
-Box::Box() : _height(1), _width(1), _type(true) {}
+Box::Box() : _height(1), _width(1), _type(FILLED) {}
 
 Box::Box(int width, int height) :
 	_height(height),
 	_width(width)
 {}
 
-Box::Box(int width, int height, enum Boxtype) :
+Box::Box(int width, int height, enum type) :
 	_height(height),
-	_width(width),
-	_type(type)
-{}
+	_width(width)
+
+{
+	_type = FILLED;
+}
 
 string Box::type() const {
 	if (FILLED) {
@@ -62,12 +64,12 @@ void Box::print(ostringstream& ostream) const {
 			ostream << "x";
 		}
 		for (int row = 0; row < _width - 2; row++) {
-			if (_type == true) {
+			if (_type == FILLED) {
 				ostream << "x";
 			}
-			else if (_type) {
+			/*else if (_type) {
 				ostream << "x";
-			}
+			}*/
 			else {
 				ostream << " ";
 			}
