@@ -22,7 +22,7 @@ public:
 	enum Boxtype { FILLED, HOLLOW, CHECKERED };
 	Box();
 	Box(int width, int height);
-	Box(int width, int height, enum type);
+	Box(int width, int height, Boxtype type);
 
 
 
@@ -33,7 +33,7 @@ public:
 
 	string type() const;
 	static int howMany();
-	void print(ostringstream& ostream) const;
+	//void print(ostringstream& ostream) const;
 
 private:
 	Boxtype _type;
