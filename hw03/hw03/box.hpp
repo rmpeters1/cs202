@@ -33,14 +33,16 @@ public:
 
 	string type() const;
 	static int howMany();
+
 	//void print(ostringstream& ostream) const;
 
 private:
 	Boxtype _type;
 	int _height;
 	int _width;
+	static int boxcount;
 };
 
-std::ostream& operator<<(std::ostream& out, const Box& b);
+ostringstream& operator<<(ostringstream& out, const Box& b);
 
 #endif //!BOX_HPP_

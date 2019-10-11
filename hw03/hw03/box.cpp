@@ -7,6 +7,8 @@
 
 #include "box.hpp"
 
+int Box::boxcount = 0;
+
 int Box::getHeight() const {
 	return _height;
 }
@@ -23,18 +25,24 @@ void Box::setWidth(int width) {
 	_width = width;
 }
 
-Box::Box() : _height(1), _width(1), _type(FILLED) {}
+Box::Box() : _height(1), _width(1), _type(FILLED) {
+	boxcount++;
+}
 
 Box::Box(int width, int height) :
 	_height(height),
 	_width(width)
-{}
+{
+	boxcount++;
+}
 
 Box::Box(int width, int height, Boxtype type) :
 	_height(height),
 	_width(width),
 	_type(type)
-{}
+{
+	boxcount++;
+}
 
 string Box::type() const {
 	if (FILLED) {
@@ -50,10 +58,43 @@ string Box::type() const {
 }
 
 int Box::howMany() {
-	return 1;
+	cout << boxcount;
+	return boxcount;
 }
 
-std::ostream& operator<<(std::ostream& out, const Box& b) {
+ostringstream& operator<<(ostringstream& out, const Box& b) {
+	for (int border = 0; border < b.getWidth(); border++) {
+		if (b.getWidth() != 1 && b.getHeight() != 1) {
+			out << "x";
+		}
+	}
+	if (b.getWidth() != 1 && b.getHeight() != 1) out << endl;
+	for (int line = 0; line < b.getHeight() - 2; line++) {
+		for (int col = 0; col < 1; col++) {
+			out << "x";
+		}
+		for (int row = 0; row < b.getWidth() - 2; row++) {
+			if (Box::FILLED) {
+				out << "x";
+			}
+			/*else if (_type) {
+				ostream << "x";
+			}*/
+
+			else if (Box::HOLLOW) {
+				out << " ";
+			}
+		}
+		for (int col = 0; col < 1; col++) {
+			out << "x";
+		}
+		out << endl;
+	}
+	for (int border = 0; border < b.getWidth(); border++) {
+		out << "x";
+	}
+	out << endl;
+	cout << out.str();
 	return out;
 }
 
