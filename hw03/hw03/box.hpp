@@ -21,9 +21,10 @@ class Box {
 public:
 	enum Boxtype { FILLED, HOLLOW, CHECKERED };
 	Box();
+	Box(const Box& b);
 	Box(int width, int height);
 	Box(int width, int height, Boxtype type);
-
+	~Box();
 
 
 	int getHeight() const;

@@ -43,6 +43,12 @@ Box::Box(int width, int height, Boxtype type) :
 {
 	boxcount++;
 }
+Box::Box(const Box& b) {
+	boxcount++;
+}
+Box::~Box() {
+	boxcount = 1;
+}
 
 string Box::type() const {
 	if (FILLED) {
@@ -63,11 +69,13 @@ int Box::howMany() {
 }
 
 ostringstream& operator<<(ostringstream& out, const Box& b) {
+
 	for (int border = 0; border < b.getWidth(); border++) {
 		if (b.getWidth() != 1 && b.getHeight() != 1) {
 			out << "x";
 		}
 	}
+	
 	if (b.getWidth() != 1 && b.getHeight() != 1) out << endl;
 	for (int line = 0; line < b.getHeight() - 2; line++) {
 		for (int col = 0; col < 1; col++) {
