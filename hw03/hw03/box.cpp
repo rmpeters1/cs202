@@ -56,13 +56,13 @@ Box::~Box() {
 }
 
 string Box::type() const {
-	if (FILLED) {
+	if (_type == FILLED) {
 		return "FILLED";
 	}
-	else if (HOLLOW) {
+	else if (_type == HOLLOW) {
 		return "HOLLOW";
 	}
-	else if (CHECKERED) {
+	else if (_type == CHECKERED) {
 		return "CHECKERED";
 	}
 
@@ -75,36 +75,64 @@ int Box::howMany() {
 ostringstream& operator<<(ostringstream& out, const Box& b) {
 
 	for (int border = 0; border < b.getWidth(); border++) {
-		if (b.type()=="CHECKERED") {
-		out << "a" << endl;
-	}
-		if (b.getWidth() != 1 && b.getHeight() != 1) {
-			out << "x";
-
+		if (b.type() == "CHECKERED") {
+			if (border % 2 == 0)
+				out << "x";
+			if (border % 2 != 0)
+				out << " ";
 		}
-		//If border == 1, out << x, if border == 2, out " "
+		else {
+			if (b.getWidth() != 1 && b.getHeight() != 1) {
+				out << "x";
+			}
+			//If border == 1, out << x, if border == 2, out " "
+		}
 	}
 
 	if (b.getWidth() != 1 && b.getHeight() != 1) out << endl;
 	for (int line = 0; line < b.getHeight() - 2; line++) {
 		for (int col = 0; col < 1; col++) {
-			out << "x";
-		}
-		for (int row = 0; row < b.getWidth() - 2; row++) {
-			if (Box::FILLED) {
+			if (b.type() == "CHECKERED") {
+				out << " x";
+			}
+			else {
 				out << "x";
 			}
-			else if (Box::HOLLOW) {
+		}
+		for (int row = 0; row < b.getWidth() - 2; row++) {
+			if (b.type() == "FILLED") {
+				out << "x";
+			}
+			else if (b.type() == "CHECKERED") {
+				if (row % 2 == 0)
+					out << " ";
+				if (row % 2 != 0)
+					out << "x";
+			}
+			else if (b.type() == "HOLLOW") {
 				out << " ";
 			}
 		}
 		for (int col = 0; col < 1; col++) {
-			out << "x";
+			if (b.type() == "CHECKERED") {
+				out << "x";
+			}
+			else {
+				out << "x";
+			}
 		}
 		out << endl;
 	}
 	for (int border = 0; border < b.getWidth(); border++) {
-		out << "x";
+		if (b.type() == "CHECKERED") {
+			if (border % 2 != 0)
+				out << "x";
+			else if (border % 2 == 0)
+				out << " ";
+		}
+		else {
+			out << "x";
+		}
 	}
 	
 	out << endl;
