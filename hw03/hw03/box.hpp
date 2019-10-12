@@ -31,6 +31,7 @@ public:
 	void setHeight(int height);
 	int getWidth() const;
 	void setWidth(int width);
+	void print(ostringstream& ostream) const;
 
 	string type() const;
 	static int howMany();

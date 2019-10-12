@@ -72,46 +72,77 @@ int Box::howMany() {
 }
 
 ostringstream& operator<<(ostringstream& out, const Box& b) {
-	out << b << endl;
-	return out;
-}
 
-void Box::print(ostringstream& ostream) const {
+	for (int border = 0; border < b.getWidth(); border++) {
+		if (b.type() == "CHECKERED") {
+			out << "a" << endl;
+		}
+		if (b.getWidth() != 1 && b.getHeight() != 1) {
+			out << "x";
 
-
-for (int border = 0; border < b.getWidth(); border++) {
-	if (_type == "CHECKERED") {
-		out << "a" << endl;
+		}
+		//If border == 1, out << x, if border == 2, out " "
 	}
-	if (b.getWidth() != 1 && b.getHeight() != 1) {
-		out << "x";
 
-	}
-	//If border == 1, out << x, if border == 2, out " "
-}
-
-if (b.getWidth() != 1 && b.getHeight() != 1) out << endl;
-for (int line = 0; line < b.getHeight() - 2; line++) {
-	for (int col = 0; col < 1; col++) {
-		out << "x";
-	}
-	for (int row = 0; row < b.getWidth() - 2; row++) {
-		if (b.type() == "FILLED") {
+	if (b.getWidth() != 1 && b.getHeight() != 1) out << endl;
+	for (int line = 0; line < b.getHeight() - 2; line++) {
+		for (int col = 0; col < 1; col++) {
 			out << "x";
 		}
-		else if (b.type() == "HOLLOW") {
-			out << " ";
+		for (int row = 0; row < b.getWidth() - 2; row++) {
+			if (b.type() == "FILLED") {
+				out << "x";
+			}
+			else if (b.type() == "HOLLOW") {
+				out << " ";
+			}
 		}
+		for (int col = 0; col < 1; col++) {
+			out << "x";
+		}
+		out << endl;
 	}
-	for (int col = 0; col < 1; col++) {
+	for (int border = 0; border < b.getWidth(); border++) {
 		out << "x";
 	}
 	out << endl;
+	cout << out.str();
+	return out;
 }
-for (int border = 0; border < b.getWidth(); border++) {
-	out << "x";
-}
-out << endl;
-cout << out.str();
-return out; 
-}
+
+//void Box::print(ostringstream& ostream) const {
+
+	//for (int border = 0; border < _width; border++) {
+	//	if (_width != 1 && _height != 1) {
+	//		ostream << "x";
+	//	}
+	//}
+	//if (_width != 1 && _height != 1) ostream << endl;
+	//for (int line = 0; line < _height - 2; line++) {
+	//	for (int col = 0; col < 1; col++) {
+	//		ostream << "x";
+	//	}
+	//	for (int row = 0; row < _width - 2; row++) {
+	//		if (_type == FILLED) {
+	//			ostream << "x";
+	//		}
+	//		/*else if (_type) {
+	//			ostream << "x";
+	//		}*/
+	//		else {
+	//			ostream << " ";
+	//		}
+	//	}
+	//	for (int col = 0; col < 1; col++) {
+	//		ostream << "x";
+	//	}
+	//	ostream << endl;
+	//}
+	//for (int border = 0; border < _width; border++) {
+	//	ostream << "x";
+	//}
+	//ostream << endl;
+
+	////cout << ostream.str();
+
+//}
