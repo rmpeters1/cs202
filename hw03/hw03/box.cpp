@@ -43,7 +43,11 @@ Box::Box(int width, int height, Boxtype type) :
 {
 	boxcount++;
 }
-Box::Box(const Box& b) {
+Box::Box(const Box& b) :
+	_width(b._width),
+	_height(b._height),
+	_type(b._type)
+{
 	boxcount++;
 }
 Box::~Box() {
@@ -52,93 +56,62 @@ Box::~Box() {
 
 string Box::type() const {
 	if (FILLED) {
-		return "Filled";
+		return "FILLED";
 	}
 	else if (HOLLOW) {
-		return "Hollow";
+		return "HOLLOW";
 	}
 	else if (CHECKERED) {
-		return "Checkered";
+		return "CHECKERED";
 	}
 
 }
 
 int Box::howMany() {
-	cout << boxcount;
 	return boxcount;
 }
 
 ostringstream& operator<<(ostringstream& out, const Box& b) {
-
-	for (int border = 0; border < b.getWidth(); border++) {
-		if (b.getWidth() != 1 && b.getHeight() != 1) {
-			out << "x";
-		}
-	}
-	
-	if (b.getWidth() != 1 && b.getHeight() != 1) out << endl;
-	for (int line = 0; line < b.getHeight() - 2; line++) {
-		for (int col = 0; col < 1; col++) {
-			out << "x";
-		}
-		for (int row = 0; row < b.getWidth() - 2; row++) {
-			if (Box::FILLED) {
-				out << "x";
-			}
-			/*else if (_type) {
-				ostream << "x";
-			}*/
-
-			else if (Box::HOLLOW) {
-				out << " ";
-			}
-		}
-		for (int col = 0; col < 1; col++) {
-			out << "x";
-		}
-		out << endl;
-	}
-	for (int border = 0; border < b.getWidth(); border++) {
-		out << "x";
-	}
-	out << endl;
-	cout << out.str();
+	out << b << endl;
 	return out;
 }
 
-//void Box::print(ostringstream& ostream) const {
+void Box::print(ostringstream& ostream) const {
 
-	//for (int border = 0; border < _width; border++) {
-	//	if (_width != 1 && _height != 1) {
-	//		ostream << "x";
-	//	}
-	//}
-	//if (_width != 1 && _height != 1) ostream << endl;
-	//for (int line = 0; line < _height - 2; line++) {
-	//	for (int col = 0; col < 1; col++) {
-	//		ostream << "x";
-	//	}
-	//	for (int row = 0; row < _width - 2; row++) {
-	//		if (_type == FILLED) {
-	//			ostream << "x";
-	//		}
-	//		/*else if (_type) {
-	//			ostream << "x";
-	//		}*/
-	//		else {
-	//			ostream << " ";
-	//		}
-	//	}
-	//	for (int col = 0; col < 1; col++) {
-	//		ostream << "x";
-	//	}
-	//	ostream << endl;
-	//}
-	//for (int border = 0; border < _width; border++) {
-	//	ostream << "x";
-	//}
-	//ostream << endl;
 
-	////cout << ostream.str();
+for (int border = 0; border < b.getWidth(); border++) {
+	if (_type == "CHECKERED") {
+		out << "a" << endl;
+	}
+	if (b.getWidth() != 1 && b.getHeight() != 1) {
+		out << "x";
 
-//}
+	}
+	//If border == 1, out << x, if border == 2, out " "
+}
+
+if (b.getWidth() != 1 && b.getHeight() != 1) out << endl;
+for (int line = 0; line < b.getHeight() - 2; line++) {
+	for (int col = 0; col < 1; col++) {
+		out << "x";
+	}
+	for (int row = 0; row < b.getWidth() - 2; row++) {
+		if (b.type() == "FILLED") {
+			out << "x";
+		}
+		else if (b.type() == "HOLLOW") {
+			out << " ";
+		}
+	}
+	for (int col = 0; col < 1; col++) {
+		out << "x";
+	}
+	out << endl;
+}
+for (int border = 0; border < b.getWidth(); border++) {
+	out << "x";
+}
+out << endl;
+cout << out.str();
+return out; 
+}
