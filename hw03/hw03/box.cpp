@@ -3,6 +3,11 @@
 * @author   Rose Peters
 * @date     October 9, 2019
 * Dr. Chris Hartman
+*
+* This program creates and draws boxes. To add a new type of box, function 
+type() should be changed to return the appropriate string, the new
+box type should be added to the enum Boxtype, and 
+to the operator<< function so that it can be printed.
 */
 
 #include "box.hpp"
@@ -92,9 +97,10 @@ ostringstream& operator<<(ostringstream& out, const Box& b) {
 	for (int line = 0; line < b.getHeight() - 2; line++) {
 		for (int col = 0; col < 1; col++) {
 			if (b.type() == "Checkered") {
-				out << " x";
+				
+				out << " ";
 			}
-			else {
+			else if (b.type() !="Checkered") {
 				out << "x";
 			}
 			lineCount++;
@@ -105,15 +111,18 @@ ostringstream& operator<<(ostringstream& out, const Box& b) {
 			}
 			else if (b.type() == "Checkered") {
 				if (row % 2 == 0)
-					out << " ";
-				if (row % 2 != 0)
 					out << "x";
+				if (row % 2 != 0)
+					out << " ";
 			}
 			else if (b.type() == "Hollow") {
 				out << " ";
 			}
 		}
 		for (int col = 0; col < 1; col++) {
+			if (b.type() == "Checkered")
+				out << " ";
+			else
 				out << "x";	
 		}
 		out << endl;

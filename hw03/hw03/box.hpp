@@ -31,12 +31,19 @@ public:
 	void setHeight(int height);
 	int getWidth() const;
 	void setWidth(int width);
-	void print(ostringstream& ostream) const;
 
+	/*
+	* Reads a string from user input
+	* @returns given string
+	*/
 	string type() const;
+
+	/*
+	* Gets the current amount of box objects that currently exist
+	* @returns amount of box objects that currently exist
+	*/
 	static int howMany();
 
-	//void print(ostringstream& ostream) const;
 
 private:
 	Boxtype _type;
@@ -45,6 +52,10 @@ private:
 	static int boxcount;
 };
 
+/*
+* Draws the box to the ostream, prints newline at the end of each line
+* @returns ostream output
+*/
 ostringstream& operator<<(ostringstream& out, const Box& b);
 
 #endif //!BOX_HPP_
