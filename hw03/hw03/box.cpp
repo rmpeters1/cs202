@@ -57,13 +57,13 @@ Box::~Box() {
 
 string Box::type() const {
 	if (_type == FILLED) {
-		return "FILLED";
+		return "Filled";
 	}
 	else if (_type == HOLLOW) {
-		return "HOLLOW";
+		return "Hollow";
 	}
 	else if (_type == CHECKERED) {
-		return "CHECKERED";
+		return "Checkered";
 	}
 
 }
@@ -73,9 +73,9 @@ int Box::howMany() {
 }
 
 ostringstream& operator<<(ostringstream& out, const Box& b) {
-
+	int lineCount =0;
 	for (int border = 0; border < b.getWidth(); border++) {
-		if (b.type() == "CHECKERED") {
+		if (b.type() == "Checkered") {
 			if (border % 2 == 0)
 				out << "x";
 			if (border % 2 != 0)
@@ -85,50 +85,53 @@ ostringstream& operator<<(ostringstream& out, const Box& b) {
 			if (b.getWidth() != 1 && b.getHeight() != 1) {
 				out << "x";
 			}
-			//If border == 1, out << x, if border == 2, out " "
 		}
 	}
 
 	if (b.getWidth() != 1 && b.getHeight() != 1) out << endl;
 	for (int line = 0; line < b.getHeight() - 2; line++) {
 		for (int col = 0; col < 1; col++) {
-			if (b.type() == "CHECKERED") {
+			if (b.type() == "Checkered") {
 				out << " x";
 			}
 			else {
 				out << "x";
 			}
+			lineCount++;
 		}
 		for (int row = 0; row < b.getWidth() - 2; row++) {
-			if (b.type() == "FILLED") {
+			if (b.type() == "Filled") {
 				out << "x";
 			}
-			else if (b.type() == "CHECKERED") {
+			else if (b.type() == "Checkered") {
 				if (row % 2 == 0)
 					out << " ";
 				if (row % 2 != 0)
 					out << "x";
 			}
-			else if (b.type() == "HOLLOW") {
+			else if (b.type() == "Hollow") {
 				out << " ";
 			}
 		}
 		for (int col = 0; col < 1; col++) {
-			if (b.type() == "CHECKERED") {
-				out << "x";
-			}
-			else {
-				out << "x";
-			}
+				out << "x";	
 		}
 		out << endl;
 	}
 	for (int border = 0; border < b.getWidth(); border++) {
-		if (b.type() == "CHECKERED") {
+		if (b.type() == "Checkered") {
+			if (lineCount % 2 == 0) {
+			if (border % 2 == 0)	
+				out << " ";
 			if (border % 2 != 0)
 				out << "x";
-			else if (border % 2 == 0)
+			}
+			if (lineCount % 2 != 0) {
+			if (border % 2 == 0)
+				out << "x";
+			if (border % 2 != 0)
 				out << " ";
+			}
 		}
 		else {
 			out << "x";
