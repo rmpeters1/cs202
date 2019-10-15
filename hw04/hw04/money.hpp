@@ -1,6 +1,8 @@
 #ifndef MONEY_HPP_
 #define MONEY_HPP_
 
+#include <iostream>;
+
 class Money {
 public:
 	Money();
@@ -21,4 +23,6 @@ private:
 	double _dollarAndCents;
 };
 
+std::ostream& operator<<(std::ostream & out, const Money & m);
+//add 0.5 to round up
 #endif //!MONEY_HPP_

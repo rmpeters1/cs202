@@ -24,3 +24,5 @@ int Money::getDollarAndCents() const {
 void Money::setDollarAndCents(int dollarAndCents) {
 	_dollarAndCents = dollarAndCents;
 }
+
+/*std::ostream& operator<<(std::ostream& out, const Money& m) {}*/
