@@ -18,11 +18,14 @@ int Money::getCents() const {
 void Money::setCents(int cents) {
 	_cents = cents;
 }
-int Money::getDollarAndCents() const {
+double Money::getDollarAndCents() const {
 	return _dollarAndCents;
 }
-void Money::setDollarAndCents(int dollarAndCents) {
+void Money::setDollarAndCents(double dollarAndCents) {
 	_dollarAndCents = dollarAndCents;
 }
 
-/*std::ostream& operator<<(std::ostream& out, const Money& m) {}*/
+ostream& operator<<(ostream& out, const Money& m) {
+	out << "$" << m.getDollars() << "." << m.getCents();
+	return out;
+}
