@@ -4,13 +4,17 @@
 class Money {
 public:
 	Money();
+	Money(int dollars, int cents);
+	Money(double dollarsAndCents);
 
 	int	getDollars() const;
-	void setDollars();
+	void setDollars(int dollars);
 	int getCents() const;
-	void setCents();
-	int getDollarAndCents();
-	void setDollarAndCents();
+	void setCents(int cents);
+	int getDollarAndCents() const;
+	void setDollarAndCents(int dollarAndCents);
+
+
 private:
 	int _dollars;
 	int _cents;
