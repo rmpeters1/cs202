@@ -17,27 +17,28 @@ public:
 	double getDollarAndCents() const;
 	void setDollarAndCents(double dollarAndCents);
 
-
+	Money& operator==(const Money&);
+	Money& operator!=(const Money&);
+	Money& operator<=(const Money&);
+	Money& operator>=(const Money&);
+	Money& operator+=(const Money&);
+	Money& operator-=(const Money&);
+	Money& operator*=(const Money&);
+	Money& operator/=(const Money&);
 private:
 	int _dollars;
 	int _cents;
 	double _dollarAndCents;
 };
 
-Money& operator==(const Money&, const Money&);
-Money& operator!=(const Money&, const Money&);
+
+
 Money& operator<(const Money&, const Money&);
-Money& operator<=(const Money&, const Money&);
 Money& operator>(const Money&, const Money&);
-Money& operator>=(const Money&, const Money&);
-Money& operator+=(const Money&, const Money&);
-Money& operator-=(const Money&, const Money&);
 Money& operator+(const Money&, const Money&);
 Money& operator-(const Money&, const Money&);
 Money& operator*(const Money&, const Money&);
-Money& operator*=(const Money&, const Money&);
 Money& operator/(const Money&, const Money&);
-Money& operator/=(const Money&, const Money&);
 
 ostream& operator<<(ostream& out, const Money& m);
 
