@@ -24,11 +24,20 @@ private:
 	double _dollarAndCents;
 };
 
-
-
-
-
-
+Money& operator==(const Money&, const Money&);
+Money& operator!=(const Money&, const Money&);
+Money& operator<(const Money&, const Money&);
+Money& operator<=(const Money&, const Money&);
+Money& operator>(const Money&, const Money&);
+Money& operator>=(const Money&, const Money&);
+Money& operator+=(const Money&, const Money&);
+Money& operator-=(const Money&, const Money&);
+Money& operator+(const Money&, const Money&);
+Money& operator-(const Money&, const Money&);
+Money& operator*(const Money&, const Money&);
+Money& operator*=(const Money&, const Money&);
+Money& operator/(const Money&, const Money&);
+Money& operator/=(const Money&, const Money&);
 
 ostream& operator<<(ostream& out, const Money& m);
 
