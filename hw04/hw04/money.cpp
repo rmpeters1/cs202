@@ -56,13 +56,18 @@ Money operator-(const Money& lhs, const Money& rhs) {
 	negRhs._neg = !negRhs._neg;
 	return lhs + negRhs;
 }
+Money& Money::operator-=(const Money& rhs) {
+	return *this = *this - rhs;
+}
 Money operator*(Money lhs, const Money& rhs) {
 	return lhs *= rhs;
 }
 Money operator/(Money lhs, const Money& rhs) {
 	return lhs /= rhs;
 }
-
+Money& Money::operator/=(const Money& rhs) {
+	return *this = *this / rhs;
+}
 bool operator<(const Money& lhs, const Money& rhs) {
 	if (lhs._neg)
 		lhs.getDollars *= -1;
