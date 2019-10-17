@@ -48,6 +48,9 @@ Money operator+(const Money& lhs, const Money& rhs) {
 	int addedCents = lhs.getCents() + rhs.getCents();
 	return Money{ addedDollars, addedCents };
 }
+Money& Money::operator+=(const Money& rhs) {
+	return *this = *this + rhs;
+}
 Money operator-(const Money& lhs, const Money& rhs) {
 	auto negRhs{ rhs };
 	negRhs._neg = !negRhs._neg;

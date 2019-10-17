@@ -21,7 +21,8 @@ public:
 	friend Money operator-(const Money&, const Money&);
 	friend bool operator<(const Money&, const Money&);
 	friend bool operator==(const Money&, const Money&);
-	Money& operator+=(const Money&);
+
+	Money& operator+=(const Money& rhs);
 	Money& operator-=(const Money&);
 	Money& operator*=(const Money&);
 	Money& operator/=(const Money&);
