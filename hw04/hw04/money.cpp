@@ -3,9 +3,19 @@
 Money::Money() : _dollars(0), _cents(0), _dollarAndCents(0) {}
 Money::Money(int dollars, int cents) :
 	_dollars(dollars),
-	_cents(cents) {}
+	_cents(cents) {
+}
 Money::Money(double dollarAndCents) :
-	_dollarAndCents(dollarAndCents) {}
+	_dollarAndCents(dollarAndCents) {
+	if (dollarAndCents < 0) {
+		_dollarAndCents = -dollarAndCents;
+		_neg = true;
+	}
+	else {
+		_dollarAndCents = dollarAndCents;
+		_neg = false;
+	}
+}
 int Money::getDollars() const {
 	return _dollars;
 }
@@ -24,8 +34,29 @@ double Money::getDollarAndCents() const {
 void Money::setDollarAndCents(double dollarAndCents) {
 	_dollarAndCents = dollarAndCents;
 }
-
+bool Money::isNegative() const {
+	return _neg;
+}
 ostream& operator<<(ostream& out, const Money& m) {
 	out << "$" << m.getDollars() << "." << m.getCents();
 	return out;
+}
+
+//Money& operator<(const Money&, const Money&)
+//Money& operator>(const Money&, const Money&)
+Money operator+(const Money& lhs, const Money& rhs) {
+	int addedDollars = lhs.getDollars() + rhs.getDollars();
+	int addedCents = lhs.getCents() + rhs.getCents();
+	return Money{ addedDollars, addedCents };
+}
+Money operator-(const Money& lhs, const Money& rhs) {
+	auto negRhs{ rhs };
+	negRhs._neg = !negRhs._neg;
+	return lhs + negRhs;
+}
+Money operator*(Money lhs, const Money& rhs) {
+	return lhs *= rhs;
+}
+Money operator/(Money lhs, const Money& rhs) {
+	return lhs /= rhs;
 }

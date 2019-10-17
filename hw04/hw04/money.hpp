@@ -16,6 +16,11 @@ public:
 	void setCents(int cents);
 	double getDollarAndCents() const;
 	void setDollarAndCents(double dollarAndCents);
+	bool isNegative() const;
+
+	friend Money operator-(const Money&, const Money&);
+	friend bool operator<(const Money&, const Money&);
+
 
 	Money& operator==(const Money&);
 	Money& operator!=(const Money&);
@@ -26,6 +31,7 @@ public:
 	Money& operator*=(const Money&);
 	Money& operator/=(const Money&);
 private:
+	bool _neg;
 	int _dollars;
 	int _cents;
 	double _dollarAndCents;
@@ -33,12 +39,11 @@ private:
 
 
 
-Money& operator<(const Money&, const Money&);
-Money& operator>(const Money&, const Money&);
-Money& operator+(const Money&, const Money&);
-Money& operator-(const Money&, const Money&);
-Money& operator*(const Money&, const Money&);
-Money& operator/(const Money&, const Money&);
+
+Money operator+(const Money&, const Money&);
+bool operator>(const Money&, const Money&);
+Money operator*(Money, const Money&);
+Money operator/(Money, const Money&);
 
 ostream& operator<<(ostream& out, const Money& m);
 
