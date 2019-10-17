@@ -42,8 +42,7 @@ ostream& operator<<(ostream& out, const Money& m) {
 	return out;
 }
 
-//Money& operator<(const Money&, const Money&)
-//Money& operator>(const Money&, const Money&)
+
 Money operator+(const Money& lhs, const Money& rhs) {
 	int addedDollars = lhs.getDollars() + rhs.getDollars();
 	int addedCents = lhs.getCents() + rhs.getCents();
@@ -59,4 +58,16 @@ Money operator*(Money lhs, const Money& rhs) {
 }
 Money operator/(Money lhs, const Money& rhs) {
 	return lhs /= rhs;
+}
+
+bool operator<(const Money& lhs, const Money& rhs) {
+	if (lhs._neg)
+		lhs.getDollars *= -1;
+	if (rhs._neg)
+		rhs.getDollars *= -1;
+	return lhs < rhs;
+}
+
+bool operator>(const Money& lhs, const Money& rhs) {
+	return rhs < lhs;
 }
