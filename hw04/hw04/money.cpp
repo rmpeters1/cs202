@@ -62,6 +62,9 @@ Money& Money::operator-=(const Money& rhs) {
 Money operator*(Money lhs, const Money& rhs) {
 	return lhs *= rhs;
 }
+Money& Money::operator*=(const Money& rhs) {
+	return *this = *this / rhs;
+}
 Money operator/(Money lhs, const Money& rhs) {
 	return lhs /= rhs;
 }
@@ -84,4 +87,13 @@ bool operator<=(const Money& lhs, const Money& rhs) {
 }
 bool operator>=(const Money& lhs, const Money& rhs) {
 	return !(lhs < rhs);
+}
+
+bool operator==(const Money& lhs, const Money& rhs) {
+	return lhs._dollars == rhs._dollars &&
+		lhs._cents == rhs._cents &&
+		lhs._neg == rhs._neg;
+}
+bool operator!=(const Money&lhs, const Money&rhs) {
+	return !(lhs == rhs);
 }
