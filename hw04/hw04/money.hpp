@@ -10,12 +10,9 @@ public:
 	Money(int dollars, int cents);
 	Money(double dollarsAndCents);
 
-	int	getDollars() const;
-	void setDollars(int dollars);
-	int getCents() const;
-	void setCents(int cents);
+	unsigned int getDollars() const;
+	unsigned int getCents() const;
 	double getDollarAndCents() const;
-	void setDollarAndCents(double dollarAndCents);
 	bool isNegative() const;
 
 	friend Money operator-(const Money&, const Money&);
@@ -29,8 +26,8 @@ public:
 
 private:
 	bool _neg;
-	int _dollars;
-	int _cents;
+	unsigned int _dollars;
+	unsigned int _cents;
 	double _dollarAndCents;
 };
 

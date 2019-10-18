@@ -16,23 +16,14 @@ Money::Money(double dollarAndCents) :
 		_neg = false;
 	}
 }
-int Money::getDollars() const {
+unsigned int Money::getDollars() const {
 	return _dollars;
 }
-void Money::setDollars(int dollars) {
-	_dollars = dollars;
-}
-int Money::getCents() const {
+unsigned int Money::getCents() const {
 	return _cents;
-}
-void Money::setCents(int cents) {
-	_cents = cents;
 }
 double Money::getDollarAndCents() const {
 	return _dollarAndCents;
-}
-void Money::setDollarAndCents(double dollarAndCents) {
-	_dollarAndCents = dollarAndCents;
 }
 bool Money::isNegative() const {
 	return _neg;
