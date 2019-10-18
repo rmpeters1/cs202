@@ -30,13 +30,16 @@ bool Money::isNegative() const {
 }
 ostream& operator<<(ostream& out, const Money& m) {
 	if (m.getDollarAndCents() > 0) {
-
+		if (m.isNegative()) {
+			std::cout << "-";
+			out << "-";
+		}
 		out << "$" << m.getDollarAndCents();
 		std::cout << "$" << m.getDollarAndCents();
 	}
 	else if (m.getDollars() >= 0 || m.getCents() > 0) {
 		if (m.getCents() < 10) {
-			std::cout << "$" << m.getDollars() << ".0" << m.getCents();
+
 			out << "$" << m.getDollars() << ".0" << m.getCents();
 		}
 		else {
@@ -54,7 +57,6 @@ Money operator+(const Money& lhs, const Money& rhs) {
 	int addedCents = lhs.getCents() + rhs.getCents();
 	if (lhs.isNegative())
 		addedDollars *= -1;
-	std::cout << addedDollars << " " << addedCents << "HERE";
 	return Money{ addedDollars, addedCents };
 }
 Money& Money::operator+=(const Money& rhs) {

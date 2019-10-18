@@ -3,6 +3,7 @@
 
 #include <iostream>
 using std::ostream;
+#include <iomanip>
 
 class Money {
 public:
