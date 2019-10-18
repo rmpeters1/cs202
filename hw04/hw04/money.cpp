@@ -38,7 +38,13 @@ bool Money::isNegative() const {
 	return _neg;
 }
 ostream& operator<<(ostream& out, const Money& m) {
-	out << "$" << m.getDollars() << "." << m.getCents();
+	//std::cout << m.getDollars() << "." << m.getCents();
+	if (m.getCents() < 10) {
+
+	}
+	else {
+		out << "$" << m.getDollars() << "." << m.getCents();
+	}
 	return out;
 }
 
@@ -63,20 +69,16 @@ Money operator*(Money lhs, const Money& rhs) {
 	return lhs *= rhs;
 }
 Money& Money::operator*=(const Money& rhs) {
-	return *this = *this / rhs;
+	return *this;
 }
 Money operator/(Money lhs, const Money& rhs) {
 	return lhs /= rhs;
 }
 Money& Money::operator/=(const Money& rhs) {
-	return *this = *this / rhs;
+	return *this;
 }
 bool operator<(const Money& lhs, const Money& rhs) {
-	if (lhs._neg)
-		lhs.getDollars *= -1;
-	if (rhs._neg)
-		rhs.getDollars *= -1;
-	return lhs < rhs;
+	return lhs.getDollars() < rhs.getDollars();
 }
 
 bool operator>(const Money& lhs, const Money& rhs) {
@@ -94,6 +96,6 @@ bool operator==(const Money& lhs, const Money& rhs) {
 		lhs._cents == rhs._cents &&
 		lhs._neg == rhs._neg;
 }
-bool operator!=(const Money&lhs, const Money&rhs) {
+bool operator!=(const Money& lhs, const Money& rhs) {
 	return !(lhs == rhs);
 }
