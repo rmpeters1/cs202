@@ -31,7 +31,6 @@ bool Money::isNegative() const {
 ostream& operator<<(ostream& out, const Money& m) {
 	if (m.getDollarAndCents() > 0) {
 		if (m.isNegative()) {
-			std::cout << "-";
 			out << "-";
 		}
 		out << "$" << std::setprecision(3) << m.getDollarAndCents();
@@ -47,12 +46,25 @@ ostream& operator<<(ostream& out, const Money& m) {
 	}
 	return out;
 }
-
+//Rational operator+(const Rational& lhs, const Rational& rhs) {
+//	int firstPart = lhs.getNumerator() * rhs.getDenominator();
+//
+//	if (lhs.isNegative())
+//		firstPart *= -1;
+//
+//	int secondPart = lhs.getDenominator() * rhs.getNumerator();
+//
+//	if (rhs.isNegative())
+//		secondPart *= -1;
+//
+//	return Rational{
+//		firstPart + secondPart,
+//		static_cast<int>(lhs.getDenominator() * rhs.getDenominator()) };
+//}
 Money operator+(const Money& lhs, const Money& rhs) {
 	int addedDollars = lhs.getDollars() + rhs.getDollars();
 
 	int addedCents = lhs.getCents() + rhs.getCents();
- 
 	return Money{ addedDollars, addedCents };
 }
 Money& Money::operator+=(const Money& rhs) {
@@ -70,13 +82,14 @@ Money operator*(Money lhs, const Money& rhs) {
 	return lhs *= rhs;
 }
 Money& Money::operator*=(const Money& rhs) {
-	return *this;
+
+	return *this = rhs._dollars * rhs._cents;
 }
 Money operator/(Money lhs, const Money& rhs) {
 	return lhs /= rhs;
 }
 Money& Money::operator/=(const Money& rhs) {
-	return *this;
+	return *this = rhs._dollars / rhs._cents;
 }
 bool operator<(const Money& lhs, const Money& rhs) {
 	return lhs.getDollars() < rhs.getDollars();
