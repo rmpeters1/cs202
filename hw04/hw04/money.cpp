@@ -34,8 +34,7 @@ ostream& operator<<(ostream& out, const Money& m) {
 			std::cout << "-";
 			out << "-";
 		}
-		out << "$" << m.getDollarAndCents();
-		std::cout << "$" << m.getDollarAndCents();
+		out << "$" << std::setprecision(3) << m.getDollarAndCents();
 	}
 	else if (m.getDollars() >= 0 || m.getCents() > 0) {
 		if (m.getCents() < 10) {
@@ -49,14 +48,11 @@ ostream& operator<<(ostream& out, const Money& m) {
 	return out;
 }
 
-
 Money operator+(const Money& lhs, const Money& rhs) {
 	int addedDollars = lhs.getDollars() + rhs.getDollars();
-	if (lhs.isNegative())
-		addedDollars *= -1;
+
 	int addedCents = lhs.getCents() + rhs.getCents();
-	if (lhs.isNegative())
-		addedDollars *= -1;
+ 
 	return Money{ addedDollars, addedCents };
 }
 Money& Money::operator+=(const Money& rhs) {

@@ -3,6 +3,8 @@
 
 #include <iostream>
 using std::ostream;
+#include <string>
+using std::string;
 #include <iomanip>
 
 class Money {
