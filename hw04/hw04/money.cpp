@@ -46,26 +46,11 @@ ostream& operator<<(ostream& out, const Money& m) {
 	}
 	return out;
 }
-//Rational operator+(const Rational& lhs, const Rational& rhs) {
-//	int firstPart = lhs.getNumerator() * rhs.getDenominator();
-//
-//	if (lhs.isNegative())
-//		firstPart *= -1;
-//
-//	int secondPart = lhs.getDenominator() * rhs.getNumerator();
-//
-//	if (rhs.isNegative())
-//		secondPart *= -1;
-//
-//	return Rational{
-//		firstPart + secondPart,
-//		static_cast<int>(lhs.getDenominator() * rhs.getDenominator()) };
-//}
-Money operator+(const Money& lhs, const Money& rhs) {
-	int addedDollars = lhs.getDollars() + rhs.getDollars();
 
-	int addedCents = lhs.getCents() + rhs.getCents();
-	return Money{ addedDollars, addedCents };
+Money operator+(const Money& lhs, const Money& rhs) {
+	int firstPart = lhs.getDollars()+rhs.getCents();
+	int secondPart= lhs.getCents()+rhs.getDollars();
+	return { firstPart, secondPart };
 }
 Money& Money::operator+=(const Money& rhs) {
 	return *this = *this + rhs;
