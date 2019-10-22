@@ -48,8 +48,8 @@ ostream& operator<<(ostream& out, const Money& m) {
 }
 
 Money operator+(const Money& lhs, const Money& rhs) {
-	int firstPart = lhs.getDollars()+rhs.getCents();
-	int secondPart= lhs.getCents()+rhs.getDollars();
+	int firstPart = lhs.getDollars()+rhs.getDollars();
+	int secondPart= lhs.getCents()+rhs.getCents();
 	return { firstPart, secondPart };
 }
 Money& Money::operator+=(const Money& rhs) {
