@@ -59,6 +59,8 @@ Money operator-(const Money& lhs, const Money& rhs) {
 	auto negRhs{ rhs };
 	negRhs._neg = !negRhs._neg;
 	return lhs + negRhs;
+	/*auto temp{ rhs };
+	return temp - lhs;*/
 }
 Money& Money::operator-=(const Money& rhs) {
 	return *this = *this - rhs;
