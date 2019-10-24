@@ -1,3 +1,9 @@
+/**
+* @file     money.cpp
+* @author   Rose Peters
+* @date     October 15, 2019
+* Dr. Chris Hartman
+*/
 #ifndef MONEY_HPP_
 #define MONEY_HPP_
 
@@ -13,16 +19,23 @@ public:
 	Money(int dollars, int cents);
 	Money(double dollarsAndCents);
 
+	//returns value of _dollars
 	unsigned int getDollars() const;
+
+	//returns value of _cents
 	unsigned int getCents() const;
+
+	//returns value of double _dollarAndCents
 	double getDollarAndCents() const;
+
+	//returns value of _neg
 	bool isNegative() const;
 
 	friend Money operator-(const Money&, const Money&);
 	friend bool operator<(const Money&, const Money&);
 	friend bool operator==(const Money&, const Money&);
 
-	Money& operator+=(const Money& rhs);
+	Money& operator+=(const Money&);
 	Money& operator-=(const Money&);
 	Money& operator*=(const Money&);
 	Money& operator/=(const Money&);
@@ -46,6 +59,6 @@ bool operator>(const Money&, const Money&);
 Money operator*(Money, const Money&);
 Money operator/(Money, const Money&);
 
-ostream& operator<<(ostream& out, const Money& m);
+ostream& operator<<(ostream&, const Money&);
 
 #endif //!MONEY_HPP_

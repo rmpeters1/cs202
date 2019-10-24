@@ -1,3 +1,9 @@
+/**
+* @file     money.cpp
+* @author   Rose Peters
+* @date     October 15, 2019
+* Dr. Chris Hartman
+*/
 #include "money.hpp"
 
 Money::Money() : _dollars(0), _cents(0), _dollarAndCents(0) {}
@@ -48,9 +54,9 @@ ostream& operator<<(ostream& out, const Money& m) {
 }
 
 Money operator+(const Money& lhs, const Money& rhs) {
-	int firstPart = lhs.getDollars()+rhs.getDollars();
-	int secondPart= lhs.getCents()+rhs.getCents();
-	return { firstPart, secondPart };
+	int firstPart = lhs.getDollars() + rhs.getDollars();
+	int secondPart = lhs.getCents() + rhs.getCents();
+	return { firstPart,secondPart };
 }
 Money& Money::operator+=(const Money& rhs) {
 	return *this = *this + rhs;
@@ -67,7 +73,6 @@ Money operator*(Money lhs, const Money& rhs) {
 	return lhs *= rhs;
 }
 Money& Money::operator*=(const Money& rhs) {
-
 	return *this = rhs._dollars * rhs._cents;
 }
 Money operator/(Money lhs, const Money& rhs) {
