@@ -1,3 +1,10 @@
+/* boxes3.hpp
+*  Rose Peters
+* 11 November 2019
+* Dr. Chris Hartman
+*/
+#include <iostream>
+using std::ostream;
 #ifndef BOXES3_HPP_
 #define BOXES3_HPP_
 class Box {
@@ -18,8 +25,13 @@ public:
 	void setHeight(int height) {
 		_height = height;
 	}
+
+	ostream print(ostream& os) const {
+		return os;
+	}
 private:
 	int _height;
 	int _width;
 };
+
 #endif //!BOXES3_HPP_
