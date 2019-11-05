@@ -1,12 +1,3 @@
-//: Person(a) //initializer
-//class Building {
-//public:
-//	House() : _height(0) {}
-//};
-///*seboth(int _age =age; int _amnt = amnt; */
-//class Mansion : public Building {
-//
-//};
 
 #include <iostream>
 
