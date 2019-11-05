@@ -29,13 +29,10 @@ public:
 		_height = height;
 	}
 
-	void print(ostream& os) const {
-	}
-	string type(string boxType) const {
-		return boxType;
-	}
+	virtual void print(ostream& os) const = 0;
+	virtual string type(string boxType) const = 0;
 	
-private:
+protected:
 	int _height;
 	int _width;
 };

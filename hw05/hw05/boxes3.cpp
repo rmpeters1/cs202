@@ -6,11 +6,16 @@
 #include "boxes3.hpp"
 
 class Filled : public Box {
-
+	void print(ostream& os) const override {}
+	string type(string boxType) const override {}
 };
+
 class Hollow : public Box {
-
+	void print(ostream& os) const override {}
+	string type(string boxType) const override {}
 };
-class Checkered : public Box {
 
+class Checkered : public Box {
+	void print(ostream& os) const override {}
+	string type(string boxType) const override {}
 };
