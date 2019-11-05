@@ -10,6 +10,7 @@
 using std::ostream;
 #include <string>
 using std::string;
+using std::unique_ptr;
 class Box {
 public:
 	Box(): 
