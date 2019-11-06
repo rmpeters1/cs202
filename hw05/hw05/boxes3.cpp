@@ -5,36 +5,11 @@
 */
 #include "boxes3.hpp"
 
-class Filled : public Box {
-public:
-	Filled() : Box(1, 1) {}
-	Filled(int width, int height) :
-		Box(width, height) {}
-	void print(ostream& os) const override {}
-	string type(string boxType) const override {}
-	unique_ptr<Box> boxFactory(char c, int w, int h) {}
-};
+void FilledBox::print(ostream& os) const {}
+string FilledBox::type(string boxType) const {}
 
-class Hollow : public Box {
-public:
-	Hollow() : Box(1, 1) {}
-	Hollow(int width, int height) :
-		Box(width, height) {}
-	void print(ostream& os) const override {}
-	string type(string boxType) const override {}
-	unique_ptr<Box> boxFactory(char c, int w, int h) {
+void HollowBox::print(ostream& os) const {}
+string HollowBox::type(string boxType) const {}
 
-	}
-
-};
-
-class Checkered : public Box {
-public:
-	Checkered() : Box(1, 1) {}
-	Checkered(int width, int height) :
-		Box(width, height) {}
-	void print(ostream& os) const override {}
-	string type(string boxType) const override {}
-	unique_ptr<Box> boxFactory(char c, int w, int h) {}
-
-};
+void CheckeredBox::print(ostream& os) const {}
+string CheckeredBox::type(string boxType) const {}

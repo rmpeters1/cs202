@@ -38,9 +38,39 @@ protected:
 	int _width;
 };
 
+class FilledBox : public Box {
+public:
+	FilledBox() : Box(1, 1) {}
+	FilledBox(int width, int height) :
+		Box(width, height) {}
+	void print(ostream& os) const override;
+	string type(string boxType) const override;
+	
+};
+
+class HollowBox : public Box {
+public:
+	HollowBox() : Box(1, 1) {}
+	HollowBox(int width, int height) :
+		Box(width, height) {}
+	void print(ostream& os) const override;
+	string type(string boxType) const override;
+
+};
+
+class CheckeredBox : public Box {
+public:
+	CheckeredBox() : Box(1, 1) {}
+	CheckeredBox(int width, int height) :
+		Box(width, height) {}
+	void print(ostream& os) const override;
+	string type(string boxType) const override;
+
+};
+
 ostream& operator<<(ostream& os, const Box& b) {
 	b.print(os);
 	return os;
 }
-
+unique_ptr<Box> boxFactory(char c, int w, int h);
 #endif //!BOXES3_HPP_
