@@ -13,10 +13,6 @@ using std::string;
 using std::unique_ptr;
 class Box {
 public:
-	Box(): 
-	_height(1),
-	_width(1)
-	{}
 	Box(int width, int height) :
 		_height(height),
 		_width(width)
