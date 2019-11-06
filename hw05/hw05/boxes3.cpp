@@ -13,3 +13,5 @@ string HollowBox::type(string boxType) const {}
 
 void CheckeredBox::print(ostream& os) const {}
 string CheckeredBox::type(string boxType) const {}
+
+unique_ptr<Box> boxFactory(char c, int w, int h) {}
