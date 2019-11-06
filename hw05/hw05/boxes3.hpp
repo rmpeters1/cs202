@@ -7,6 +7,7 @@
 #define BOXES3_HPP_
 
 #include <iostream>
+using std::endl;
 using std::ostream;
 #include <string>
 using std::string;
