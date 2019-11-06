@@ -44,7 +44,7 @@ public:
 	FilledBox(int width, int height) :
 		Box(width, height) {}
 	void print(ostream& os) const override;
-	string type(string boxType) const override;
+	string type() const override;
 	
 };
 
@@ -54,7 +54,7 @@ public:
 	HollowBox(int width, int height) :
 		Box(width, height) {}
 	void print(ostream& os) const override;
-	string type(string boxType) const override;
+	string type() const override;
 
 };
 
@@ -64,7 +64,7 @@ public:
 	CheckeredBox(int width, int height) :
 		Box(width, height) {}
 	void print(ostream& os) const override;
-	string type(string boxType) const override;
+	string type() const override;
 
 };
 

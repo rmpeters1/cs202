@@ -6,12 +6,12 @@
 #include "boxes3.hpp"
 
 void FilledBox::print(ostream& os) const {}
-string FilledBox::type(string boxType) const {}
+string FilledBox::type() const {}
 
 void HollowBox::print(ostream& os) const {}
-string HollowBox::type(string boxType) const {}
+string HollowBox::type() const {}
 
 void CheckeredBox::print(ostream& os) const {}
-string CheckeredBox::type(string boxType) const {}
+string CheckeredBox::type() const {}
 
 unique_ptr<Box> boxFactory(char c, int w, int h) {}
