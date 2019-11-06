@@ -10,13 +10,16 @@
 using std::ostream;
 #include <string>
 using std::string;
+#include <memory>
 using std::unique_ptr;
+
 class Box {
 public:
 	Box(int width, int height) :
 		_height(height),
 		_width(width)
 	{}
+
 	int getWidth() const {
 		return _width;
 	}
@@ -31,8 +34,8 @@ public:
 	}
 
 	virtual void print(ostream& os) const = 0;
-	virtual string type(string boxType) const = 0;
-	
+	virtual string type() const = 0;
+
 protected:
 	int _height;
 	int _width;
@@ -45,7 +48,7 @@ public:
 		Box(width, height) {}
 	void print(ostream& os) const override;
 	string type() const override;
-	
+
 };
 
 class HollowBox : public Box {
@@ -53,7 +56,7 @@ public:
 	HollowBox() : Box(1, 1) {}
 	HollowBox(int width, int height) :
 		Box(width, height) {}
-	void print(ostream& os) const override;
+	void print(ostream& os)const override;
 	string type() const override;
 
 };
@@ -63,14 +66,11 @@ public:
 	CheckeredBox() : Box(1, 1) {}
 	CheckeredBox(int width, int height) :
 		Box(width, height) {}
-	void print(ostream& os) const override;
+	void print(ostream& os)const override;
 	string type() const override;
 
 };
+ostream& operator<<(ostream& os, const Box& b);
 
-ostream& operator<<(ostream& os, const Box& b) {
-	b.print(os);
-	return os;
-}
 unique_ptr<Box> boxFactory(char c, int w, int h);
 #endif //!BOXES3_HPP_
