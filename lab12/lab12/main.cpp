@@ -21,7 +21,6 @@ int main() {
 	Base* bPb = &b;
 
 	//  2) A base class pointer to the derived class object.
-	Base* bPd = &d; //polymorphism cause not pointing to same class
 
 	//  3) A derived class pointer to the derived class object.
 	Derived* dPtrd = &d;

@@ -35,9 +35,9 @@ void FilledBox::print(ostream& os)const {
 string FilledBox::type() const { return "Filled"; }
 
 void HollowBox::print(ostream& os)const {
-	
+
 	for (int border = 0; border < _width; border++) {
-		if (_width != 1 && _height != 1) {
+		if (_width != 1 && _height != 1) { //maybe the issue
 			os << "x";
 			std::cout << "x";
 		}
@@ -72,13 +72,53 @@ void HollowBox::print(ostream& os)const {
 string HollowBox::type() const { return "Hollow"; }
 
 void CheckeredBox::print(ostream& os)const {
+	int lineCount = 0;
+	for (int border = 0; border < _width; border++) {
+		if (_width != 1 && _height != 1) {
+			if (border % 2 == 0) {
+				os << "x";
+				std::cout << "x";
+			}
+			if (border % 2 != 0) {
+				os << " ";
+				std::cout << " ";
+			}
+
+		}
+	}
+	if (_width != 1 && _height != 1)
+		os << endl;
+	std::cout << endl;
+	for (int line = 0; line < _height - 2; line++) {
+		for (int col = 0; col < 1; col++) {
+			os << "x";
+			std::cout << "x";
+		}
+		for (int row = 0; row < _width - 2; row++) {
+
+			os << "x";
+			std::cout << " ";
+		}
+		for (int col = 0; col < 1; col++) {
+			os << "x";
+			std::cout << "x";
+		}
+		os << endl;
+		std::cout << endl;
+	}
+	for (int border = 0; border < _width; border++) {
+		os << "x";
+		std::cout << "x";
+	}
+	os << endl;
+	std::cout << endl;
 }
 string CheckeredBox::type() const { return "Checkered"; }
 
 unique_ptr<Box> boxFactory(char c, int w, int h) {
 	switch (c) {
 	case 'f':
-		return std::make_unique<FilledBox>(w,h);
+		return std::make_unique<FilledBox>(w, h);
 	case 'h':
 		return std::make_unique<HollowBox>(w, h);
 	case 'c':

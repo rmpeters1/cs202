@@ -33,7 +33,7 @@ public:
 	void setHeight(int height) {
 		_height = height;
 	}
-	virtual ~Box() {}
+	virtual ~Box() = default;
 	virtual void print(ostream& os) const = 0;
 	virtual string type() const = 0;
 
