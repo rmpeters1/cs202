@@ -76,8 +76,16 @@ void CheckeredBox::print(ostream& os)const {
 string CheckeredBox::type() const { return "Checkered"; }
 
 unique_ptr<Box> boxFactory(char c, int w, int h) {
-	unique_ptr<Box> P;
-	return P;
+	switch (c) {
+	case 'f':
+		return std::make_unique<FilledBox>(w,h);
+	case 'h':
+		return std::make_unique<HollowBox>(w, h);
+	case 'c':
+		return std::make_unique<CheckeredBox>(w, h);
+	default:
+		break;
+	}
 }
 
 ostream& operator<<(ostream& os, const Box& b)
