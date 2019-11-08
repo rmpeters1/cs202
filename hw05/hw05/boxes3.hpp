@@ -34,7 +34,14 @@ public:
 		_height = height;
 	}
 	virtual ~Box() = default;
+
+	/*
+	* Draws box to ostream
+	* @return ostream
+	*/
 	virtual void print(ostream& os) const = 0;
+
+	//returns string according to the box type
 	virtual string type() const = 0;
 
 protected:
@@ -73,5 +80,12 @@ public:
 };
 ostream& operator<<(ostream& os, const Box& b);
 
+/*
+* Makes and returns unique pointer according to the box type.
+* @param char c sets the box type to Filled, Hollow, or Checkered with c,f,h
+* @param int w sets the box width
+* @param int h sets the box height
+* @returns unique_ptr<Box> with proper dimensions
+*/
 unique_ptr<Box> boxFactory(char c, int w, int h);
 #endif //!BOXES3_HPP_

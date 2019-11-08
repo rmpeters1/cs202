@@ -77,41 +77,76 @@ void CheckeredBox::print(ostream& os)const {
 		if (_width != 1 && _height != 1) {
 			if (border % 2 == 0) {
 				os << "x";
-				std::cout << "x";
 			}
 			if (border % 2 != 0) {
 				os << " ";
-				std::cout << " ";
+			}
+		}
+	}
+	lineCount++;
+	if (_width != 1 && _height != 1) {
+		os << endl;
+	}
+	for (int line = 0; line < _height - 2; line++) {
+		for (int col = 0; col < 1; col++) {
+			if (lineCount % 2 != 0) {
+				os << " ";
+			}
+			else {
+				os << "x";
+			}
+		}
+		for (int row = 0; row < _width - 2; row++) {
+			if (lineCount % 2 != 0) {
+				if (row % 2 != 0) {
+					os << " ";
+				}
+				else {
+					os << "x";
+				}
+			}
+			else if (lineCount % 2 == 0) {
+				if (row % 2 != 0) {
+					os << "x";
+				}
+				else {
+					os << " ";
+				}
 			}
 
 		}
-	}
-	if (_width != 1 && _height != 1)
-		os << endl;
-	std::cout << endl;
-	for (int line = 0; line < _height - 2; line++) {
 		for (int col = 0; col < 1; col++) {
-			os << "x";
-			std::cout << "x";
-		}
-		for (int row = 0; row < _width - 2; row++) {
+			if (lineCount % 2 != 0) {
+				os << " ";
+			}
+			else {
+				os << "x";
+			}
 
-			os << "x";
-			std::cout << " ";
 		}
-		for (int col = 0; col < 1; col++) {
-			os << "x";
-			std::cout << "x";
-		}
+		lineCount++;
+
 		os << endl;
-		std::cout << endl;
 	}
 	for (int border = 0; border < _width; border++) {
-		os << "x";
-		std::cout << "x";
+		if (lineCount % 2 == 0) {
+			if (border % 2 == 0) {
+				os << "x";
+			}
+			if (border % 2 != 0) {
+				os << " ";
+			}
+		}
+		else if (lineCount % 2 != 0) {
+			if (border % 2 == 0) {
+				os << " ";
+			}
+			if (border % 2 != 0) {
+				os << "x";
+			}
+		}
 	}
 	os << endl;
-	std::cout << endl;
 }
 string CheckeredBox::type() const { return "Checkered"; }
 
@@ -128,8 +163,7 @@ unique_ptr<Box> boxFactory(char c, int w, int h) {
 	}
 }
 
-ostream& operator<<(ostream& os, const Box& b)
-{
+ostream& operator<<(ostream& os, const Box& b) {
 	b.print(os);
 	return os;
 }
