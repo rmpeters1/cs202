@@ -37,14 +37,13 @@ string FilledBox::type() const { return "Filled"; }
 void HollowBox::print(ostream& os)const {
 
 	for (int border = 0; border < _width; border++) {
-		if (_width != 1 && _height != 1) { //maybe the issue
 			os << "x";
 			std::cout << "x";
-		}
 	}
-	if (_width != 1 && _height != 1)
+	if (_width != 1 && _height != 1) {
 		os << endl;
-	std::cout << endl;
+		std::cout << endl;
+	}
 	for (int line = 0; line < _height - 2; line++) {
 		for (int col = 0; col < 1; col++) {
 			os << "x";
@@ -63,8 +62,10 @@ void HollowBox::print(ostream& os)const {
 		std::cout << endl;
 	}
 	for (int border = 0; border < _width; border++) {
-		os << "x";
-		std::cout << "x";
+		if (_width != 1 && _height != 1) {
+			os << "x";
+			std::cout << "x";
+		}
 	}
 	os << endl;
 	std::cout << endl;
