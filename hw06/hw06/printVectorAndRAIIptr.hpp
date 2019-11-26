@@ -11,18 +11,24 @@ using std::ostringstream;
 template<typename T>
 class RAIIPtr {
 public:
-	RAIIPtr(const T* &val);
+	RAIIPtr(const T*& val);
+	~RAIIPtr();
 private:
 	T _val;
 };
 template<typename T>
-RAIIPtr<T>::RAIIPtr(const T*& val): _val(val) {}
+RAIIPtr<T>::RAIIPtr(const T*& val) : _val(val) {}
+template<typename T>
 
-template<typename P>
-void printVector(ostringstream &os, vector<P> v) {
+
+void printVector(ostringstream& os, vector<T> v) {
 	for (auto i : v) {
 		os << v << endl;
 	}
+}
+template<typename A>
+RAIIPtr<A> operator*(RAIIPtr<A> lhs, const RAIIPtr<A>& rhs) {
+	return lhs *= rhs;
 }
 
 
