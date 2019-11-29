@@ -1,5 +1,6 @@
-#ifndef PRINTVECTORANDRAII_HPP_
-#define PRINTVECTORANDRAII_HPP_
+#ifndef PRINTVECTORANDRAIIPTR_HPP_
+#define PRINTVECTORANDRAIIPTR_HPP_
+
 
 #include<iostream>
 using std::endl;
@@ -12,23 +13,21 @@ template<typename T>
 class RAIIPtr {
 public:
 	RAIIPtr(const T& val);
-	~RAIIPtr();
-
-	RAIIPtr &operator->();
 private:
-	T _val;
+	T* _val;
 };
 template<typename T>
-RAIIPtr<T>::RAIIPtr(const T& val) : _val(val) {}
+RAIIPtr<T>::RAIIPtr(const T& val) :_val(val) {}
+
+template<typename U>
+RAIIPtr<U>& operator*(const U&val) {
+	return val;
+}
 template<typename T>
 void printVector(ostringstream& os, vector<T> v) {
 	for (auto i : v) {
 		os << v << endl;
 	}
 }
-template<typename A>
-RAIIPtr<A> operator*(RAIIPtr<A> lhs, const RAIIPtr<A>& rhs) {
-	return lhs *= rhs;
-}
 
-#endif // !PRINTVECTORANDRAII_HPP_
+#endif // !PRINTVECTORANDRAIIPTR_HPP_
