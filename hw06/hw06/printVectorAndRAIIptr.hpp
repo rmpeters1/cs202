@@ -13,6 +13,9 @@ template<typename T>
 class RAIIPtr {
 public:
 	RAIIPtr(const T* val);
+	RAIIPtr* operator->() const {
+		return RAIIPtr;
+	}
 private:
 	T* _val;
 };
@@ -23,6 +26,7 @@ template<typename U>
 RAIIPtr<U>& operator*(const U&val) {
 	return val;
 }
+
 template<typename T>
 void printVector(ostringstream& os, vector<T> v) {
 	for (auto i : v) {
