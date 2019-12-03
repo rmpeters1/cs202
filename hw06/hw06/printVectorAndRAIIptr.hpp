@@ -20,7 +20,8 @@ private:
 	T* _val;
 };
 template<typename T>
-RAIIPtr<T>::RAIIPtr(const T* val) :_val(val) {}
+RAIIPtr<T>::RAIIPtr(const T* val) :_val(val) {
+}
 
 template<typename U>
 RAIIPtr<U>& operator*(const U&val) {
