@@ -44,3 +44,15 @@ int main() {
 		vector<int> v;
 
 }
+//iterators, stl
+//templates functions/class
+//recursion
+//random access/seq access
+////overloaded operators
+//void bar(string s, int n) {
+//	if (n == 0)
+//		return;
+//	cout << s << " " << n;
+//	bar("[" + s "]", n - 1);
+//
+//	bar("", 3);
