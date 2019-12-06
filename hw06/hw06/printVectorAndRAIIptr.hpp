@@ -1,3 +1,10 @@
+/*
+printVectorAndRAIIptr.hpp
+Rose Peters
+5 Dec 2019
+Dr. Chris Hartman
+*/
+
 #ifndef PRINTVECTORANDRAIIPTR_HPP_
 #define PRINTVECTORANDRAIIPTR_HPP_
 
