@@ -20,10 +20,11 @@ template<typename T>
 class RAIIPtr {
 public:
 	RAIIPtr(T* val);
-	RAIIPtr* operator->() {
-		return &RAIIPtr;
+	T* operator->() {
+		return _val;
 	}
-	const T& operator*() {
+	~RAIIPtr() { delete _val; }
+	T& operator*() {
 		return *_val;
 	}
 private:
