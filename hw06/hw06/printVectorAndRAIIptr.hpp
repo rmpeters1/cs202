@@ -19,26 +19,31 @@ using std::ostringstream;
 template<typename T>
 class RAIIPtr {
 public:
-	RAIIPtr(const T* val);
-	RAIIPtr* operator->() const {
-		return RAIIPtr;
+	RAIIPtr(T* val);
+	RAIIPtr* operator->() {
+		return &RAIIPtr;
+	}
+	const T& operator*() {
+		return *_val;
 	}
 private:
 	T* _val;
 };
-template<typename T>
-RAIIPtr<T>::RAIIPtr(const T* val) :_val(val) {
-}
-
-template<typename U>
-RAIIPtr<U>& operator*(const U&val) {
-	return val;
-}
 
 template<typename T>
-void printVector(ostringstream& os, vector<T> v) {
-	for (auto i : v) {
-		os << v << endl;
+RAIIPtr<T>::RAIIPtr(T* val) :_val(val) {
+}
+
+
+/*
+Outputs the contents of a given vector to an ostream.
+@param os prints contents of given vector
+@param vec vector of items to be printed
+*/
+template<typename T>
+void printVector(ostringstream& os, vector<T> vec) {
+	for (auto i : vec) {
+		os << vec << endl;
 	}
 }
 
